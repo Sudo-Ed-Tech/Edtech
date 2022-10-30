@@ -67,7 +67,7 @@ class TrainingCourseRatingSerializer(serializers.ModelSerializer):
 class TrainingDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.TrainingTrainingDetails
-        fields= ['id', 'training_course','teacher','date','f_time','t_time','meeting_link']
+        fields= ['id', 'training_course','teacher','date','f_time','t_time']
     
     def __init__(self, *args, **kwargs):
         super(TrainingDetailsSerializer, self).__init__(*args, **kwargs)
@@ -95,7 +95,7 @@ class TrainingRecordingListSerializer(serializers.ModelSerializer):
 class TrainingSessionsSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.TrainingSessions
-        fields=['id','s_number','s_training_course','s_topic','s_time','s_date','s_meet_link','s_trainer','status']
+        fields=['id','s_number','s_training_course','s_topic','s_time','s_date','s_meet_link','s_trainer']
 
     def __init__(self, *args, **kwargs):
         super(TrainingSessionsSerializer, self).__init__(*args, **kwargs)

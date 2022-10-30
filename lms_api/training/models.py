@@ -104,7 +104,6 @@ class TrainingTrainingDetails(models.Model):
     date = models.DateField("Date")
     f_time = models.TimeField("Time")
     t_time = models.TimeField("Time", null=True)
-    meeting_link = models.URLField(max_length=200, null=True)
 
     class Meta:
         verbose_name_plural = "4. Training Details"
@@ -139,7 +138,6 @@ class TrainingSessions(models.Model):
     s_date = models.DateField("Date")
     s_meet_link = models.URLField(max_length=200, null=True)
     s_trainer = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-    status = models.BooleanField(default=False)
 
 
     class Meta:

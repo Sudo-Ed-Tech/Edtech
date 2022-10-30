@@ -26,6 +26,8 @@ urlpatterns = [
 
     #Training Detials
     path('training-details/', views.TrainingDetailsList.as_view()),
+    path('trainer-training-details/<int:teacher_id>', views.TrainerTrainingDetailsList.as_view()),
+    
 
     #Training Recording
     path('training-recordings/', views.TrainingRecordingList.as_view()),
@@ -34,6 +36,8 @@ urlpatterns = [
     #Training Session 
     path('training-sessions/', views.TrainingSessionsList.as_view()),
     path('training-session/<int:course_id>', views.TrainingCourseSessionsList.as_view()),
+    # path('student-training-session/<int:course_id>/<int:student_id>', views.TrainingCourseSessionsList.as_view()),
+    path('trainer-training-session/<int:course_id>/<int:teacher_id>', views.TrainingCourseSessionsList.as_view()),
     
 
 ]

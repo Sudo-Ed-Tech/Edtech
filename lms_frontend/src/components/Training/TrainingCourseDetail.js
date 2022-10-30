@@ -17,9 +17,11 @@ function TrainingCourseDetail() {
   const [ratingStatus, setratingStatus] = useState([]);
   const [AvgRating, setAvgRating] = useState([]);
   const [TrainingRecordingData, setTrainingRecordingData] = useState([]);
-  const [SessionData, setSessionData] =useState([]);
+  const [TrainerSessionData, setTrainerSessionData] =useState([]);
+  const [StudentSessionData, setStudentSessionData] =useState([]);
   let { course_id } = useParams();
   const studentId = localStorage.getItem("studentId");
+  const teacherId = localStorage.getItem("teacherId");
 
   //Fetch Course details
   useEffect(() => {
@@ -56,14 +58,22 @@ function TrainingCourseDetail() {
     //Traing Course Details
 
     try{
-      axios.get(baseUrl+ '/training-session/'+course_id).then((res)=>{
-        setSessionData(res.data)
-        console.log(res.data)
+      axios.get(baseUrl+ '/trainer-training-session/'+course_id +'/'+teacherId).then((res)=>{
+        setTrainerSessionData(res.data)
       })
 
     }catch(e){
       console.log(e)
     }
+    try{
+      axios.get(baseUrl+ '/training-session/'+course_id).then((res)=>{
+        setStudentSessionData(res.data)
+      })
+
+    }catch(e){
+      console.log(e)
+    }
+
     try {
       axios.get(baseUrl + "/training-course/" + course_id).then((res) => {
         setTrainingCourseData(res.data);
@@ -193,8 +203,14 @@ function TrainingCourseDetail() {
     }
 
     //Redirect to the meeting Link
-    const MeetLink = ()=>{
-      {SessionData.map((session, index)=>(
+    const SmeetLink = ()=>{
+      {StudentSessionData.map((session, index)=>(
+        window.location.href=session.s_meet_link
+      ))
+      }
+    }
+    const TmeetLink = ()=>{
+      {TrainerSessionData.map((session, index)=>(
         window.location.href=session.s_meet_link
       ))
       }
@@ -384,13 +400,13 @@ function TrainingCourseDetail() {
               </tr>
             </thead>
             <tbody>
-            {SessionData.map((session, index) => (
+            {StudentSessionData.map((session, index) => (
               <tr>
                 <td className="text-center">{session.s_number}</td>
                 <td>{session.s_topic}</td>
                 <td className="text-center">{session.s_time}</td>
                 <td className="text-center">{session.s_date}</td>
-                <td className="text-center"><Link onClick={MeetLink} style={{textDecoration:'none'}}>Join Meet</Link></td>
+                <td className="text-center"><Link onClick={SmeetLink} style={{textDecoration:'none'}}>Join Meet</Link></td>
                 <td><Link style={{textDecoration:'none', color:"black"}} to={`/teacher-detail/`+session.s_trainer.id}>{session.s_trainer.full_name}</Link></td>
                 
               </tr>
@@ -402,9 +418,6 @@ function TrainingCourseDetail() {
         </div>
         
         <div className="col-5">
-          
-        
-          <>
           <p className="fs-4">Recorded Session Details </p>
           <table className="table table-bordered">
             <thead className="text-center">
@@ -430,29 +443,77 @@ function TrainingCourseDetail() {
             ))}
             </tbody>
           </table>
-          </>
       </div>
       </div>
       )}
 
-      {teacherLoginStatus === "success" && (
-        <div className="card mt-4">
-          <h5 className="card-header">Course Recordings</h5>
-          <ul className="list-group list-group-flush">
-            {TrainingRecordingData.map((recording, index) => (
-              <li className="list-group-item" value={recording.id}>
-                {recording.topic}
-                <span className="float-end">
-                  <button  onClick={RecVideo} type='button'> Download
-                  </button>
-                </span>
-             </li>
+    {teacherLoginStatus === "success" && (
+        <div className="row">
+          {/* Session Details */}
+        <div className="col-1"></div>
+        <div className="col-5">
+        
+          <>
+          <p className="fs-4">Training Session Details </p>
+          <table className="table table-bordered">
+            <thead className="text-center">
+              <tr>
+                <th>Sr. No.</th>
+                <th>Topic</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Meet Link</th>
+                <th>Trainer</th>
+              </tr>
+            </thead>
+            <tbody>
+            {TrainerSessionData.map((session, index) => (
+              <tr>
+                <td className="text-center">{session.s_number}</td>
+                <td>{session.s_topic}</td>
+                <td className="text-center">{session.s_time}</td>
+                <td className="text-center">{session.s_date}</td>
+                <td className="text-center"><Link onClick={TmeetLink} style={{textDecoration:'none'}}>Join Meet</Link></td>
+                <td><Link style={{textDecoration:'none', color:"black"}} to={`/teacher-detail/`+session.s_trainer.id}>{session.s_trainer.full_name}</Link></td>
+                
+              </tr>
             ))}
-          </ul>
+            </tbody>
+          </table>
+          </>
+        
         </div>
+        
+        <div className="col-5">
+          <p className="fs-4">Recorded Session Details </p>
+          <table className="table table-bordered">
+            <thead className="text-center">
+              <tr>
+                <th>Sr. No.</th>
+                <th>Topic</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Note</th>
+                <th>Recording</th>
+              </tr>
+            </thead>
+            <tbody>
+            {TrainingRecordingData.map((recording, index) => (
+              <tr>
+                <td className="text-center">{recording.rec_number}</td>
+                <td>{recording.topic}</td>
+                <td className="text-center">{recording.rec_time}</td>
+                <td className="text-center">{recording.rec_date}</td>
+                <td className="text-center"><Link onClick={SessionNote} style={{textDecoration:'none'}}>View Note</Link></td>
+                <td className="text-center"><Link onClick={RecVideo} style={{textDecoration:'none'}}>Play Video</Link></td>
+              </tr>
+            ))}
+            </tbody>
+          </table>
+      </div>
+      </div>
       )}
-    </div>
-  );
-}
 
+</div>
+);}
 export default TrainingCourseDetail;

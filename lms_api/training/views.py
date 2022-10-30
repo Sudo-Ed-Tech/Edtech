@@ -24,7 +24,7 @@ class CourseCreatorList(generics.ListCreateAPIView):
 class CourseCreatorDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.CourseCreator.objects.all()
     serializer_class = CourseCreatorSerializer
-    # permission_classes=[permissions.IsAuthenticated]
+    #permission_classes=[permissions.IsAuthenticated]
 
 
 #Training Course
@@ -93,9 +93,13 @@ class TrainingCourseRatingList(generics.ListCreateAPIView):
     serializer_class = TrainingCourseRatingSerializer
 
     def get_queryset(self):
-        course_id = self.kwargs['course_id']
-        training_course = models.TrainingCourse.objects.get(pk=course_id)
-        return models.TrainingCourseRating.objects.filter(training_course=training_course)
+        if 'course_id' in self.kwargs:
+            course_id = self.kwargs['course_id']
+            training_course = models.TrainingCourse.objects.get(pk=course_id)
+            return models.TrainingCourseRating.objects.filter(training_course=training_course)
+        
+        else:
+            pass
 
 #Training Rating Status [studnet rated a specific training course]
 def fetch_rating_status(request, student_id, course_id):
@@ -124,6 +128,20 @@ class TrainingDetailsList(generics.ListAPIView):
     serializer_class = TrainingDetailsSerializer
 
 
+class TrainerTrainingDetailsList(generics.ListAPIView):
+    queryset = models.TrainingTrainingDetails.objects.all()
+    serializer_class = TrainingDetailsSerializer
+    
+    def get_queryset(self):
+        if 'teacher_id' in self.kwargs:
+            teacher_id = self.kwargs['teacher_id']
+            teacher = models.Teacher.objects.get(pk=teacher_id)
+            return models.TrainingTrainingDetails.objects.filter(teacher=teacher)
+        
+        else:
+            pass
+
+            
 
 
 #Training Recording List
@@ -137,10 +155,12 @@ class TrainingCourseRecordingList(generics.ListCreateAPIView):
     serializer_class = TrainingRecordingListSerializer
 
     def get_queryset(self):
-        course_id = self.kwargs['course_id']
-        training_course = models.TrainingCourse.objects.get(pk=course_id)
-        return models.TrainingCourseRecording.objects.filter(training_course=training_course)
-
+        if 'course_id' in self.kwargs:
+            course_id = self.kwargs['course_id']
+            training_course = models.TrainingCourse.objects.get(pk=course_id)
+            return models.TrainingCourseRecording.objects.filter(training_course=training_course)
+        else:
+            pass
 
 
 
@@ -150,12 +170,24 @@ class TrainingSessionsList(generics.ListAPIView):
     serializer_class = TrainingSessionsSerializer
 
 
+
+
 #Training Session View Coursewise
 class TrainingCourseSessionsList(generics.ListCreateAPIView):
     queryset=models.TrainingSessions.objects.all()
     serializer_class = TrainingSessionsSerializer
 
     def get_queryset(self):
-        course_id = self.kwargs['course_id']
-        training_course = models.TrainingCourse.objects.get(pk=course_id)
-        return models.TrainingSessions.objects.filter(s_training_course=training_course)
+        if 'course_id' in self.kwargs:
+            course_id = self.kwargs['course_id']
+            training_course = models.TrainingCourse.objects.get(pk=course_id)
+            return models.TrainingSessions.objects.filter(s_training_course=training_course)
+    
+        elif 'teacher_id' and 'course_id' in self.kwargs:
+            teacher_id = self.kwargs['teacher_id']
+            teacher = models.Teacher.objects.get(pk=teacher_id)
+            course=models.TrainingCourse.objects.get(pk=course_id)
+            return models.TrainingSessions.objects.filter(s_trainer=teacher,s_training_course=course )
+
+        else:
+            pass

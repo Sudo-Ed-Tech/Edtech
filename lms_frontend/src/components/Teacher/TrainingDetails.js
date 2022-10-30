@@ -13,8 +13,8 @@ function TrainingDetails(){
     const teacherId = localStorage.getItem("teacherId");
     useEffect(() => {
         try {
-        axios.get(baseUrl + "/training-details-teacher/"+teacherId).then((res) => {
-            // console.log(res)
+        axios.get(baseUrl + "/trainer-training-details/"+teacherId).then((res) => {
+            console.log(res.data)
             settrainingData(res.data);
         });
         } catch (error) {
@@ -27,7 +27,7 @@ function TrainingDetails(){
     const [courseData, setCourseData] = useState([]);
     useEffect(() => {
         try {
-        axios.get(baseUrl + "/teacher-course/" + 2).then((res) => {
+        axios.get(baseUrl + "/training-courses/" ).then((res) => {
             setCourseData(res.data);
         });
         } catch (error) {
@@ -57,18 +57,14 @@ function TrainingDetails(){
                     <th>Course</th>
                     <th>Date</th>
                     <th>From</th>
-                    <th>to</th>
-                    <th>Attendee(s)</th>  
-                    <th>Meeting Link</th>
+                    <th>To</th>
                   </tr>
                 </thead>
-                <tbody >
                 {trainingData.map((training, index) => (
-                  <>
-                  
+                <tbody >
                     <tr>
                         <td>
-                            <Link to={`/training-course-detail/`+training.course.id}>{training.course.title}</Link>
+                            <Link to={`/training-course-detail/`+training.training_course.id}>{training.training_course.title}</Link>
                         </td>
                         <td className='text-center'>
                             {training.date}
@@ -80,19 +76,14 @@ function TrainingDetails(){
                             {training.t_time}
                         </td>
                         
-                        <td className='text-center'>
+                        {/* <td className='text-center'>
                         {courseData.map((course, index) => (
                             <Link to={`/edenrolled-students/`+course.id}>{course.total_enrolled_student}</Link>
                         ))}
-                        </td>
-                        <td className='text-center'>
-                            <button className='btn btn-primary' onClick={RedMeeting}>start meeting</button>
-                        </td>
+                        </td> */}
                     </tr>
-                    
-                    </>
-                ))}    
                 </tbody>
+                ))}  
               </table>
             </div>
           </div>
