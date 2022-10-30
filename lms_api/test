@@ -1,0 +1,1 @@
+insert into main_teacher(id,full_name,email,password,qualification,mobile_no,address) values('Null','Aftab','Aftab@didactic.com','123456','BE-Com','1234567890','Test Address');

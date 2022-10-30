@@ -1,2 +1,2 @@
-# Edtech
-LMS
+# edtech
+Learning Management System
