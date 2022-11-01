@@ -171,10 +171,10 @@ This is the Fronend_
 <hr />
 
 ### Team
- - [Khan Sana](@KhanSanaParveen) 
- - [Khan Muskan](@muskan-1) 
- - [Shaikh Zikra](@zikrashaikh08) 
- - [Aftab Harun](@7absec)
+ - [Khan Sana](https://github.com/KhanSanaParveen) 
+ - [Khan Muskan](https://github.com/muskan-1) 
+ - [Shaikh Zikra](https://github.com/zikrashaikh08) 
+ - [Aftab Harun](https://github.com/7absec)
 
 <hr />
 <h3 align="left">Connect with Us:</h3>
