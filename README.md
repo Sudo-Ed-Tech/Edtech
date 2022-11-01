@@ -40,54 +40,54 @@ EdTech is a Corporate Training System. It has two modules eLearing Module (Learn
 
 **eLearning modules** </br>
 1.Teacher 
-	- Courses
-		- Create
-		- Update
-		- Delete
- 	- Chapters
-		- Create
-		- Update
-		- Delete
-	- Enlolled Student
-		- View
+ - Courses
+  - Create
+  - Update
+  - Delete
+ - Chapters
+  - Create
+  - Update
+  - Delete
+ - Enlolled Student
+  - View
 2. Student
-	- Course
-		- Enroll
-		- Rate
-		- Like
-	- Teacher Details
-		- View
+ - Course
+  - Enroll
+  - Rate
+  - Like
+ - Teacher Details
+  - View
 3. Course
-	- Chapters
-	- Enrollement
-	- Like
-	- Rate 
+ - Chapters
+ - Enrollement
+ - Like
+ - Rate 
 
 **Corporate Training**
 1. Course Creator
-- Training Courses
-	- Create
-	- Update
-	- Delete
-	- Assign Trainer
+ - Training Courses
+  - Create
+  - Update
+  - Delete
+  - Assign Trainer
 2. Trainer
-	- Training the course
-	- Trainee Attendance
+ - Training the course
+ - Trainee Attendance
 3. Student/Trainee
-	- Attend training Meeting
-	- Or Watch the recording
+ - Attend training Meeting
+ - Or Watch the recording
 4. Training Session
-	- Topic Name
-	- Time
-	- Date
-	- Meeting Link
-	- Trainer details
+ - Topic Name
+ - Time
+ - Date
+ - Meeting Link
+ - Trainer details
 5. Training Recording
-	- Topic Name
-	- Time
-	- Date
-	- Session Note
-	- Session Recording
+ - Topic Name
+ - Time
+ - Date
+ - Session Note
+ - Session Recording
 
 ### Project Installation and Setup
 **Step 00:** _Requirements Need to be installed before Setup_
