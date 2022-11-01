@@ -1,6 +1,6 @@
 
 ![](https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png)
-
+@7absec
 # Ed-Tech
 
 ### Features
@@ -8,7 +8,7 @@
 1. eLearning
 2. Corporate Training
 
-**eLearning modules**
+**eLearning modules** </br>
 1.Teacher 
  - Courses
 	- Create
