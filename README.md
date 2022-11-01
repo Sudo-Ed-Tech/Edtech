@@ -159,7 +159,7 @@ _if you got any error on Windwos , then install the react-script in the Edtech/l
 
 ``` npm install react-scripts --save```
 
-_followed by run_
+_followed by_
 
 ``` npm start```
 
