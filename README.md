@@ -1,10 +1,10 @@
+# Ed-Tech
 <p align="center">
 <a href="https://github.com/Sudo-Ed-Tech/Edtech" target="_blank"> 
     <img src="https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png"> 
   </a> 
 </p>
 
-# Ed-Tech
 <p>
 EdTech is a Corporate Training System. It has two modules eLearing Module (Learning Management System) and Corporate Training Module. 
 </p>
@@ -33,7 +33,7 @@ EdTech is a Corporate Training System. It has two modules eLearing Module (Learn
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>  
 </p>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=Sudo-Ed-Tech&label=Profile%20views&color=0e75b6&style=flat" alt="Sudo-Ed-Tech" /> </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=Sudo-Ed-Tech&label=Project%20views&color=0e75b6&style=flat" alt="Sudo-Ed-Tech" /> </p>
 	 
 [![trophy](https://github-profile-trophy.vercel.app/?username=Sudo-Ed-Tech)](https://github.com/Sudo-Ed-Tech/github-profile-trophy)
 	  
