@@ -40,21 +40,21 @@ Didactic Solutions is a Corporate Training System. It has two modules eLearing M
 ### Features
 	  
 **Modules**
- - 1. eLearning
- - 2. Corporate Training
+ - eLearning
+ - Corporate Training
 
 **eLearning modules** </br>
- - 1.Teacher 
- - 2.Student
- - 3.Course
+ - Teacher 
+ - Student
+ - Course
 
 **Corporate Training**
 
- - 1.Course Creator
- - 2.Trainer
- - 3.Student/Trainee
- - 4.Training Session
- - 5.Training Recording
+ - Course Creator
+ - Trainer
+ - Student/Trainee
+ - Training Session
+ - Training Recording
 
 ### Project Installation and Setup
 **Step 00:** _Requirements Need to be installed before Setup_
