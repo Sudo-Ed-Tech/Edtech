@@ -1,7 +1,27 @@
 
 ![](https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png)
-@7absec
 # Ed-Tech
+
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> 
+  <a href="https://bestofreactjs.com/" target="_blank"> 
+    <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="c" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.w3schools.com/css/" target="_blank"> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.python.org/" target="_blank"> 
+  <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" alt="css3" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.djangoproject.com/" target="_blank"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-original.svg" alt="django" width="40" height="40"/> 
+  <a href="https://git-scm.com/" target="_blank"> 
+    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.w3.org/html/" target="_blank"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>  
+</p>
 
 ### Features
 **Modules**
@@ -92,6 +112,7 @@ DATABASES = {
 		    }
 		}
 ```
+
 **Step 04:** _Install dependencies/requirements_
 We are using python Virtual Environment you can go for this or chose your own way. 
 Go inside the Edtech and run
@@ -142,4 +163,10 @@ This is the Backend_
 **Step 10:** _Visit the http://127.0.0.1:3000/  [Frontend](http:127.0.0.1:3000/) </br>
 This is the Fronend_
 
-**_We are done here with the installation._**
+**_We are done here with the installation._** :+1:
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://twitter.com/7absec" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="aiktcian" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/7absec" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="aftab-harun" height="30" width="40" /></a>
+</p>
