@@ -1,5 +1,11 @@
 
-![](https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png)
+<!-- (https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png) -->
+<p align="center">
+<a href="https://github.com/Sudo-Ed-Tech/Edtech" target="_blank"> 
+    <img src="https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png"> 
+  </a> 
+</p>
+
 # Ed-Tech
 
 
