@@ -1,78 +1,65 @@
-<html>
-<link rel="stylesheet" href="editormd/css/editormd.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="editormd/editormd.min.js"></script>
-<script type="text/javascript">
-    $(function() {
-        var editor = editormd("test-editor", {
-            // width  : "100%",
-            // height : "100%",
-            path   : "editormd/lib/"
-        });
-    });
-</script>
 
 ![](https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png)
 
-<h1>Ed-Tech</h1>
+# Ed-Tech
 
-<h3>Features</h3>
+### Features
 **Modules**
-1.  eLearning
+1. eLearning
 2. Corporate Training
 
 **eLearning modules**
-1. Teacher 
-	a] Courses
-		Create
-		Update
-		Delete
-	b] Chapters
-		Create
-		Update
-		Delete
-	c] Enlolled Student
-		View
+1.Teacher 
+ - Courses
+	- Create
+	- Update
+	- Delete
+- Chapters
+	- Create
+	- Update
+	- Delete
+- Enlolled Student
+	- View
 2. Student
-	a] Course
-		Enroll
-		Rate
-		Like
-	b] Teacher Details
-		View
+- Course
+	- Enroll
+	- Rate
+	- Like
+- Teacher Details
+	- View
 3. Course
-		Chapters
-		Enrollement
-		Like
-		Rate 
+	- Chapters
+	- Enrollement
+	- Like
+	- Rate 
 
 **Corporate Training**
 1. Course Creator
-	a] Training Courses
-		Create
-		Update
-		Delete
-		Assign Trainer
+- Training Courses
+	- Create
+	- Update
+	- Delete
+	- Assign Trainer
 2. Trainer
-		Training the course
-		Trainee Attendance
+	- Training the course
+	- Trainee Attendance
 3. Student/Trainee
-		Attend training Meeting
-		Or Watch the recording
+	- Attend training Meeting
+	- Or Watch the recording
 4. Training Session
-		Topic Name
-		Time
-		Date
-		Meeting Link
-		Trainer details
+	- Topic Name
+	- Time
+	- Date
+	- Meeting Link
+	- Trainer details
 5. Training Recording
-		Topic Name
-		Time
-		Date
-		Session Note
-		Session Recording
+	- Topic Name
+	- Time
+	- Date
+	- Session Note
+	- Session Recording
 
-<h3>Project Installation and Setup</h3>
+### Project Installation and Setup
 **Step 00:** Requirements
 1. Git
 2. Python
@@ -148,13 +135,11 @@ _followed by run_
 
 `$ npm start`
 
-**Step 09:** _Visit the http:127.0.0.1:8000/admin/   [Links](http:127.0.0.1:8000/admin/) </br>
+**Step 09:** _Visit the http:127.0.0.1:8000/admin/   [Backend](http:127.0.0.1:8000/admin/) </br>
 Login with the Super User (Admin) credentials </br>
 This is the Backend_
 
-**Step 10:** _Visit the http://127.0.0.1:3000/  [Links](http:127.0.0.1:3000/) </br>
+**Step 10:** _Visit the http://127.0.0.1:3000/  [Frontend](http:127.0.0.1:3000/) </br>
 This is the Fronend_
-
-</html>
 
 **_We are done here with the installation._**
