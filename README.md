@@ -1,4 +1,4 @@
-# Ed-Tech
+# Didactic Solutions
 <p align="center">
 <a href="https://github.com/Sudo-Ed-Tech/Edtech" target="_blank"> 
     <img src="https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png"> 
@@ -186,11 +186,11 @@ _followed by run_
 
 `$ npm start`
 
-**Step 09:** _Visit the http:127.0.0.1:8000/admin/  -- [Backend](http:127.0.0.1:8000/admin/) </br>
+**Step 09:** _Visit the http://127.0.0.1:8000/admin/  -- [Backend] </br>
 Login with the Super User (Admin) credentials </br>
 This is the Backend_
 
-**Step 10:** _Visit the http://127.0.0.1:3000/  -- [Frontend](http:127.0.0.1:3000/) </br>
+**Step 10:** _Visit the http://127.0.0.1:3000/  -- [Frontend]</br>
 This is the Fronend_
 
 **_We are done here with the installation._** :+1:
