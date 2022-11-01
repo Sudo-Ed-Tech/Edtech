@@ -6,9 +6,10 @@
 </p>
 
 <p>
-EdTech is a Corporate Training System. It has two modules eLearing Module (Learning Management System) and Corporate Training Module. 
+Didactic Solutions is a Corporate Training System. It has two modules eLearing Module (Learning Management System) and Corporate Training Module. 
 </p>
 
+<hr />
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> 
@@ -35,8 +36,7 @@ EdTech is a Corporate Training System. It has two modules eLearing Module (Learn
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=Sudo-Ed-Tech&label=Project%20views&color=0e75b6&style=flat" alt="Sudo-Ed-Tech" /> </p>
 	 
-[![trophy](https://github-profile-trophy.vercel.app/?username=Sudo-Ed-Tech)](https://github.com/Sudo-Ed-Tech/github-profile-trophy)
-	  
+<hr />	  
 ### Features
 **Modules**
 1. eLearning
@@ -195,6 +195,7 @@ This is the Fronend_
 
 **_We are done here with the installation._** :+1:
 
+<hr />
 <h3 align="left">Connect with Us:</h3>
 <p align="left">
 <a href="https://twitter.com/7absec" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="7absec" height="30" width="40" /></a>
