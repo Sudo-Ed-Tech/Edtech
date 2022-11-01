@@ -9,11 +9,15 @@
 # Ed-Tech
 
 
+
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> 
   <a href="https://bestofreactjs.com/" target="_blank"> 
     <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="c" width="40" height="40"/> 
-  </a> 
+  </a>
+  <a href="https://www.npmjs.com/" target="_blank"> 
+    <img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" alt="c" width="40" height="40"/> 
+  </a>
   <a href="https://www.w3schools.com/css/" target="_blank"> 
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
   </a> 
@@ -36,23 +40,23 @@
 
 **eLearning modules** </br>
 1.Teacher 
- - Courses
-	- Create
-	- Update
-	- Delete
-- Chapters
-	- Create
-	- Update
-	- Delete
-- Enlolled Student
-	- View
+	 - Courses
+		- Create
+		- Update
+		- Delete
+	- Chapters
+		- Create
+		- Update
+		- Delete
+	- Enlolled Student
+		- View
 2. Student
-- Course
-	- Enroll
-	- Rate
-	- Like
-- Teacher Details
-	- View
+	- Course
+		- Enroll
+		- Rate
+		- Like
+	- Teacher Details
+		- View
 3. Course
 	- Chapters
 	- Enrollement
@@ -86,10 +90,21 @@
 	- Session Recording
 
 ### Project Installation and Setup
-**Step 00:** Requirements
+**Step 00:** _Requirements Need to be installed before Setup_
 1. Git
 2. Python
 3. NPM
+<p align="left">
+	<a href="https://www.npmjs.com/" target="_blank">
+		<img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" alt="c" width="40" height="40"/> 
+	</a>
+	<a href="https://www.python.org/" target="_blank"> 
+  		<img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" alt="css3" width="40" height="40"/> 
+  	</a>
+	<a href="https://git-scm.com/" target="_blank"> 
+   		 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> 
+  	</a> 
+</p>
 
 **Step 01:** _Clone the repository_
 
@@ -162,17 +177,17 @@ _followed by run_
 
 `$ npm start`
 
-**Step 09:** _Visit the http:127.0.0.1:8000/admin/   [Backend](http:127.0.0.1:8000/admin/) </br>
+**Step 09:** _Visit the http:127.0.0.1:8000/admin/  -- [Backend](http:127.0.0.1:8000/admin/) </br>
 Login with the Super User (Admin) credentials </br>
 This is the Backend_
 
-**Step 10:** _Visit the http://127.0.0.1:3000/  [Frontend](http:127.0.0.1:3000/) </br>
+**Step 10:** _Visit the http://127.0.0.1:3000/  -- [Frontend](http:127.0.0.1:3000/) </br>
 This is the Fronend_
 
 **_We are done here with the installation._** :+1:
 
-<h3 align="left">Connect with me:</h3>
+<h3 align="left">Connect with Us:</h3>
 <p align="left">
-<a href="https://twitter.com/7absec" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="aiktcian" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/7absec" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="aftab-harun" height="30" width="40" /></a>
+<a href="https://twitter.com/7absec" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="7absec" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/7absec" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="7absec" height="30" width="40" /></a>
 </p>
