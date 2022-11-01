@@ -56,6 +56,7 @@ Didactic Solutions is a Corporate Training System. It has two modules eLearing M
  - Training Session
  - Training Recording
 
+<hr />
 ### Project Installation and Setup
 **Step 00:** _Requirements Need to be installed before Setup_
 <p align="left">
