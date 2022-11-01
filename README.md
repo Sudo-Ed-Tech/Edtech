@@ -1,10 +1,5 @@
+<html>
 <link rel="stylesheet" href="editormd/css/editormd.css" />
-<div id="test-editor">
-    <textarea style="display:none;">### Editor.md
-
-**Editor.md**: The open source embeddable online markdown editor, based on CodeMirror & jQuery & Marked.
-    </textarea>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="editormd/editormd.min.js"></script>
 <script type="text/javascript">
@@ -159,5 +154,7 @@ This is the Backend_
 
 **Step 10:** _Visit the http://127.0.0.1:3000/  [Links](http:127.0.0.1:3000/) </br>
 This is the Fronend_
+
+</html>
 
 **_We are done here with the installation._**
