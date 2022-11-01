@@ -11,9 +11,9 @@ urlpatterns = [
     
     # Course Category
     path('category/', views.CategoryList.as_view()),
-    path('course/', views.CourseList.as_view()),
+    path('courses/', views.CourseList.as_view()),
     path('course/<int:pk>', views.CourseDetailView.as_view()),
-    # path('course-category/<int:category_id>',views.CourseDetailView.as_view()),
+    path('course-category/<int:category_id>',views.CourseDetailView.as_view()),
 
     # Chapter
     path('chapter/', views.ChapterList.as_view()),

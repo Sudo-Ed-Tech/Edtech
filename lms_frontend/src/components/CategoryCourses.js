@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from 'axios';
-const baseUrl='http://127.0.0.1:8000/api/training';
+const baseUrl='http://127.0.0.1:8000/api/elearning';
 
 function CategoryCourses(){
 
@@ -12,7 +12,7 @@ function CategoryCourses(){
 
     useEffect(()=>{
         try{
-            axios.get(baseUrl+'/course/?category='+category_slug).then((res)=>{
+            axios.get(baseUrl+'/courses/?category='+category_slug).then((res)=>{
                 setCourseData(res.data)
             })
         }catch(error){

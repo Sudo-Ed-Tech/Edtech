@@ -11,7 +11,7 @@ function AllCourses(){
 
     useEffect(()=>{
         try{
-            axios.get(baseUrl+'/course/').then((res)=>{
+            axios.get(baseUrl+'/courses/').then((res)=>{
                 setCourseData(res.data)
             })
         }catch(error){

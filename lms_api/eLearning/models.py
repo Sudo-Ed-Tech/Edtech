@@ -56,8 +56,7 @@ class CourseCategory(models.Model):
 
 class Course(models.Model):
     category = models.ForeignKey(CourseCategory, on_delete=models.CASCADE)
-    teacher = models.ForeignKey(
-        Teacher, on_delete=models.CASCADE, related_name="teacher_courses")
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name="teacher_courses")
     title = models.CharField(max_length=150)
     description = models.TextField()
     featured_img = models.ImageField(upload_to='course_img/', null=True)
@@ -68,10 +67,9 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.title} -{self.teacher}"
-
+  
     def related_videos(self):
-        related_videos = Course.objects.filter(
-            technologies__icontains=self.technologies).exclude(id=self.id)
+        related_videos = Course.objects.filter(technologies__icontains=self.technologies).exclude(id=self.id)
         return serializers.serialize('json', related_videos)
 
     def tech_list(self):
