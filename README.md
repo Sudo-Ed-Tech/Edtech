@@ -1,5 +1,3 @@
-
-<!-- (https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png) -->
 <p align="center">
 <a href="https://github.com/Sudo-Ed-Tech/Edtech" target="_blank"> 
     <img src="https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png"> 
@@ -7,7 +5,9 @@
 </p>
 
 # Ed-Tech
-
+<p>
+EdTech is a Corporate Training System. It has two modules eLearing Module (Learning Management System) and Corporate Training Module. 
+</p>
 
 
 <h3 align="left">Languages and Tools:</h3>
@@ -40,11 +40,11 @@
 
 **eLearning modules** </br>
 1.Teacher 
-	 - Courses
+	- Courses
 		- Create
 		- Update
 		- Delete
-	- Chapters
+ 	- Chapters
 		- Create
 		- Update
 		- Delete
@@ -91,9 +91,6 @@
 
 ### Project Installation and Setup
 **Step 00:** _Requirements Need to be installed before Setup_
-1. Git
-2. Python
-3. NPM
 <p align="left">
 	<a href="https://www.npmjs.com/" target="_blank">
 		<img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" alt="c" width="40" height="40"/> 
