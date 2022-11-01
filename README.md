@@ -175,6 +175,8 @@ This is the Fronend_
 	<a href="https://twitter.com/7absec" target="blank">
 		<img src="https://img.shields.io/twitter/follow/7absec?logo=twitter&style=for-the-badge" alt="7absec" />
 	</a> 
+</p>
+<p align="left">
 	<a href="https://linkedin.com/in/7absec" target="blank">
 		<img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="7absec" height="30" width="40" />
 	</a>
