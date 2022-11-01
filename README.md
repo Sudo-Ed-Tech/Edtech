@@ -76,7 +76,9 @@ Didactic Solutions is a Corporate Training System. It has two modules eLearing M
 </p>
 
 **Step 01:** _Clone the repository_
-
+```javascipt
+git clone https://github.com/Sudo-Ed-Tech/Edtech.git
+```
 **Step 02:** _Open the repository in any text editor (VScode, Atom, etc)_
 
 **Step 03:** _Edit the  Edtech/lms_api/lms_api/settings.py file_
@@ -107,44 +109,43 @@ DATABASES = {
 We are using python Virtual Environment you can go for this or chose your own way. 
 Go inside the Edtech and run
 
-`$ pip install -r requirements.txt`
+``` pip install -r requirements.txt```
 
 **Or**
 We have added the python virtual environment file too, You can activate the environment by the command (Run from Edtech)
+for Linux   -- ``` source ctp/bin/activate```
 
-for Linux   -- `$ source ctp/bin/activate`
-
-for Windows -- `$ workon ctp/bin/activate` or `$ workon ctp/bin/activate.sp1`
+for Windows -- ``` workon ctp/bin/activate``` or ``` workon ctp/bin/activate.sp1```
 
 **_All Steps after this will be performed inside the virtual environment (ctp)_**
 
 **Step 05:** _Migrate the django models inside the database run the following commands from the direcotry Edtech/lms_api one after another_
 
-`$ python manage.py makemigrations`
+``` python manage.py makemigrations```
 
-`$ python manage.py migrate`
+``` python manage.py migrate```
 
 **Step 06:** _Now, let's create Admin user for Backend, go inside the Edtech/lms_api and run_
 
-`$ python manage.py createsuperuser ` _---complete the process_ </br>
+``` python manage.py createsuperuser ``` _---complete the process_ </br>
 **_Note: This usename:password will be used to access the admin module_**
 
 **Step 07:** _After acticating the environment and admin user, go inside the Edtech/lms_api and run_
 
-`$ python manage.py runserver` **_or_** `$ python3 manage.py runserver`
+``` python manage.py runserver``` **_or_** ``` python3 manage.py runserver```
 
 **Step 08:** _Now, Open another tab or window in terminal
 go inside to the Edtech/lms_frontend and start the frontend by the command_
 
-`$ npm start`   _---(this project is build on Ubuntu, so this command will work on Linux)_
+``` npm start```   _---(this project is build on Ubuntu, so this command will work on Linux)_
 
 _if you got any error on Windwos , then install the react-script in the Edtech/lms_frontend_
 
-`$ npm install react-scripts --save`
+``` npm install react-scripts --save```
 
 _followed by run_
 
-`$ npm start`
+``` npm start```
 
 **Step 09:** _Visit the http://127.0.0.1:8000/admin/  -- [Backend] </br>
 Login with the Super User (Admin) credentials </br>
