@@ -113,6 +113,7 @@ Go inside the Edtech and run
 
 **Or**
 We have added the python virtual environment file too, You can activate the environment by the command (Run from Edtech)
+
 for Linux   -- ``` source ctp/bin/activate```
 
 for Windows -- ``` workon ctp/bin/activate``` or ``` workon ctp/bin/activate.sp1```
