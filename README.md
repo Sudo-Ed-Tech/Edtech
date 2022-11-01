@@ -81,9 +81,11 @@ Didactic Solutions is a Corporate Training System. It has two modules eLearing M
 git clone https://github.com/Sudo-Ed-Tech/Edtech.git
 ```
 <br/>
+
 **Step 02:** _Open the repository in any text editor (VScode, Atom, etc)_
 
 <br/>
+
 **Step 03:** _Edit the  Edtech/lms_api/lms_api/settings.py file_
 ```javascript
 DATABASES = {
@@ -109,6 +111,7 @@ DATABASES = {
 ```
 
 <br/>
+
 **Step 04:** _Install dependencies/requirements_
 We are using python Virtual Environment you can go for this or chose your own way. 
 Go inside the Edtech and run
@@ -123,6 +126,7 @@ for Linux   -- ``` source ctp/bin/activate```
 for Windows -- ``` workon ctp/bin/activate``` or ``` workon ctp/bin/activate.sp1```
 
 <br/>
+
 **_All Steps after this will be performed inside the virtual environment (ctp)_**
 
 **Step 05:** _Migrate the django models inside the database run the following commands from the direcotry Edtech/lms_api one after another_
@@ -132,17 +136,20 @@ for Windows -- ``` workon ctp/bin/activate``` or ``` workon ctp/bin/activate.sp1
 ``` python manage.py migrate```
 
 <br/>
+
 **Step 06:** _Now, let's create Admin user for Backend, go inside the Edtech/lms_api and run_
 
 ``` python manage.py createsuperuser ``` _---complete the process_ </br>
 **_Note: This usename:password will be used to access the admin module_**
 
 <br/>
+
 **Step 07:** _After acticating the environment and admin user, go inside the Edtech/lms_api and run_
 
 ``` python manage.py runserver``` **_or_** ``` python3 manage.py runserver```
 
 <br/>
+
 **Step 08:** _Now, Open another tab or window in terminal
 go inside to the Edtech/lms_frontend and start the frontend by the command_
 
@@ -157,15 +164,18 @@ _followed by run_
 ``` npm start```
 
 <br/>
+
 **Step 09:** _Visit the http://127.0.0.1:8000/admin/  -- [Backend] </br>
 Login with the Super User (Admin) credentials </br>
 This is the Backend_
 
 <br/>
+
 **Step 10:** _Visit the http://127.0.0.1:3000/  -- [Frontend]</br>
 This is the Fronend_
 
 <br/>
+
 **_We are done here with the installation._** :+1: 
 
 <hr />
