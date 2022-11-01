@@ -168,12 +168,13 @@ This is the Fronend_
 
 **_We are done here with the installation._** :+1: 
 
+<hr />
 
-###Team
- - [Khan Sana](https://github.com/KhanSanaParveen) 
- - [Khan Muskan](https://github.com/muskan-1) 
- - [Shaikh Zikra](https://github.com/zikrashaikh08) 
- - [Aftab Harun](https://github.com/7absec)
+### Team
+ - [Khan Sana](@KhanSanaParveen) 
+ - [Khan Muskan](@muskan-1) 
+ - [Shaikh Zikra](@zikrashaikh08) 
+ - [Aftab Harun](@7absec)
 
 <hr />
 <h3 align="left">Connect with Us:</h3>
