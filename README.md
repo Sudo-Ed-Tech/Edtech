@@ -38,68 +38,23 @@ Didactic Solutions is a Corporate Training System. It has two modules eLearing M
 	 
 <hr />	  
 ### Features
+	  
 **Modules**
-1. eLearning
-2. Corporate Training
+ - 1. eLearning
+ - 2. Corporate Training
 
 **eLearning modules** </br>
-1.Teacher 
- - Courses
-   - Create
-   - Update
-   - Delete
- - Chapters
-   - Create
-   - Update
-   - Delete
- - Enlolled Student
-   - View
-
-2.Student
- - Course
-   - Enroll
-   - Rate
-   - Like
- - Teacher Details
-   - View
-
-	
-3.Course
-  - Chapters
-  - Enrollement
-  - Like
-  - Rate 
+ - 1.Teacher 
+ - 2.Student
+ - 3.Course
 
 **Corporate Training**
 
-1.Course Creator
- - Training Courses
-   - Create
-   - Update
-   - Delete
-   - Assign Trainer
-
-2.Trainer
-  - Training the course
-  - Trainee Attendance
-
-3.Student/Trainee
-  - Attend training Meeting
-  - Or Watch the recording
-
-4.Training Session
-  - Topic Name
-  - Time
-  - Date
-  - Meeting Link
-  - Trainer details
-
-5.Training Recording
-  - Topic Name
-  - Time
-  - Date
-  - Session Note
-  - Session Recording
+ - 1.Course Creator
+ - 2.Trainer
+ - 3.Student/Trainee
+ - 4.Training Session
+ - 5.Training Recording
 
 ### Project Installation and Setup
 **Step 00:** _Requirements Need to be installed before Setup_
