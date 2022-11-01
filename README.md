@@ -36,7 +36,8 @@ Didactic Solutions is a Corporate Training System. It has two modules eLearing M
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=Sudo-Ed-Tech&label=Project%20views&color=0e75b6&style=flat" alt="Sudo-Ed-Tech" /> </p>
 	 
-<hr />	  
+<hr />	
+
 ### Features
 	  
 **Modules**
