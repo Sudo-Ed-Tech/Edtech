@@ -1,7 +1,8 @@
 ![](https://github.com/Sudo-Ed-Tech/Edtech/blob/main/lms_frontend/public/logown.png)
-#Ed-Tech
 
-###Features
+<h1>Ed-Tech</h1>
+
+<h3>Features</h3>
 **Modules**
 1.  eLearning
 2. Corporate Training
@@ -57,7 +58,7 @@
 		Session Note
 		Session Recording
 
-###Project Installation and Setup
+<h3>Project Installation and Setup</h3>
 **Step 00:** Requirements
 1. Git
 2. Python
@@ -65,7 +66,7 @@
 
 **Step 01:** _Clone the repository_
 
-**Step 02: ** _Open the repository in any text editor (VScode, Atom, etc)_
+**Step 02:** _Open the repository in any text editor (VScode, Atom, etc)_
 
 **Step 03:** _Edit the  Edtech/lms_api/lms_api/settings.py file_
 ```javascript
@@ -113,10 +114,10 @@ for Windows -- `$ workon ctp/bin/activate` or `$ workon ctp/bin/activate.sp1`
 
 **Step 06:** _Now, let's create Admin user for Backend, go inside the Edtech/lms_api and run_
 
-`$ python manage.py createsuperuser ` _---complete the process_
+`$ python manage.py createsuperuser ` _---complete the process_ </br>
 **_Note: This usename:password will be used to access the admin module_**
 
-**Step 07:** _After acticating the environment and admin user, go inside the Edtech/lms_api and run _
+**Step 07:** _After acticating the environment and admin user, go inside the Edtech/lms_api and run_
 
 `$ python manage.py runserver` **_or_** `$ python3 manage.py runserver`
 
@@ -133,11 +134,11 @@ _followed by run_
 
 `$ npm start`
 
-**Step 09:** _Visit the http:127.0.0.1:8000/admin/   [Links](http:127.0.0.1:8000/admin/)
-Login with the Super User (Admin) credentials
+**Step 09:** _Visit the http:127.0.0.1:8000/admin/   [Links](http:127.0.0.1:8000/admin/) </br>
+Login with the Super User (Admin) credentials </br>
 This is the Backend_
 
-**Step 10:** _Visit the http://127.0.0.1:3000/  [Links](http:127.0.0.1:3000/)
+**Step 10:** _Visit the http://127.0.0.1:3000/  [Links](http:127.0.0.1:3000/) </br>
 This is the Fronend_
 
 **_We are done here with the installation._**
