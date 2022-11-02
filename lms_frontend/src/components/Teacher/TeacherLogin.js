@@ -2,7 +2,7 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2'
-const baseUrl='http://127.0.0.1:8000/api/elearning';
+const baseUrl='http://127.0.0.1:8000/api';
 
 function TeacherLogin(){
     const teacherId=localStorage.getItem("teacherId");
@@ -52,8 +52,6 @@ function TeacherLogin(){
     if(teacherLoginStatus==='true'){
         window.location.href='/teacher-dashboard/';
     }
-
-    
 
     useEffect(()=>{
         document.title="Trainer Login"

@@ -2,12 +2,11 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-const baseUrl = "http://127.0.0.1:8000/api/elearning";
-const trainingUrl = "http://127.0.0.1:8000/api/training";
+const baseUrl = "http://127.0.0.1:8000/api";
+
 function Home() {
   const [courseData, setCourseData] = useState([]);
   const [teacherData, setTeacherData] = useState([]);
-  const [trainingCourseData, setTrainingCourseData] = useState([]);
   
   useEffect(() => {
     try {
@@ -18,17 +17,6 @@ function Home() {
       console.log(error);
     }
   }, []);
-
-  useEffect(() => {
-    try {
-      axios.get(trainingUrl + "/training-courses/").then((res) => {
-        setTrainingCourseData(res.data);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
 
   useEffect(() => {
     try {
@@ -125,46 +113,6 @@ function Home() {
       <div className="row mt-5">
         <div className="col-2"></div>
         <div className="col-8">
-          {/* Training Course */}
-          <h3 className="pb-1 mb-4">
-            Training{" "}
-            <Link to="/training-courses" className="float-end">
-              {" "}
-              See All{" "}
-            </Link>{" "}
-          </h3>
-          <div className="row">
-            {trainingCourseData.map((course, index) => (
-                              <div className="col-md-3 mb-4">
-                  <div className="card w-100">
-                    <Link to={`/training-course-detail/${course.id}`}>
-                      <img
-                        src={course.featured_img}
-                        className="card-img-top"
-                        width={200}
-                        height={150}
-                        alt={course.title}
-                      />
-                    </Link>
-                    <hr />
-                    <div className="card-body">
-                      <h5 className="card-title">
-                        <Link to={`/training-course-detail/${course.id}`}>{course.title}</Link>
-                      </h5>
-                      <p><b>Detail:</b>&nbsp;&nbsp; {course.description}...<Link to={`/training-course-detail/${course.id}`}>learn more</Link></p>
-                    </div>
-                    <div className="card-footer">
-                      <div className="title">
-                        <span><b>Rating:&nbsp;&nbsp;{course.course_rating}/5</b></span>
-                        <span className="float-end"><b>Enrolled:&nbsp;&nbsp;{course.total_enrolled_students}</b></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-          {/* End Training Courses */}
-
           {/* Latest Course */}
           <h3 className="pb-1 mb-4">
             Latest Courses{" "}
@@ -175,8 +123,6 @@ function Home() {
           </h3>
           <div className="row">
             {courseData.map((course, index) => (
-              <>
-              {course.teacher.id !==2 &&
                 <div className="col-md-3 mb-4">
                   <div className="card w-100">
                     <Link to={`/course-detail/${course.id}`}>
@@ -203,8 +149,6 @@ function Home() {
                     </div>
                   </div>
                 </div>
-              }
-              </>
               ))}
           </div>
           {/* End Latest Courses */}
@@ -218,8 +162,6 @@ function Home() {
           </h3>
           <div className="row">
             {courseData.map((course, index) => (
-              <>
-              {course.teacher.id !==2 &&
                 <div className="col-md-3 mb-4">
                   <div className="card w-100">
                     <Link to={`/course-detail/${course.id}`}>
@@ -246,8 +188,6 @@ function Home() {
                     </div>
                   </div>
                 </div>
-                }
-                </>
               ))}
           </div>
           {/* End popular Courses */}
@@ -260,7 +200,8 @@ function Home() {
             </Link>
           </h3>
           <div className="row">
-          {teacherData.map((teacher, index) => (
+          {teacherData &&
+              teacherData.map((teacher, index) => (
             <div className="col-md-3 mb-4">
               <div className="card">
                 <Link to={`/detail/}`}>
@@ -283,6 +224,7 @@ function Home() {
                   </div>
                 </div>
               </div>
+              
             </div>
             ))}
           </div>

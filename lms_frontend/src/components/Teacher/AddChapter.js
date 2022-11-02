@@ -3,7 +3,7 @@ import TrainerSidebar from "./TrainerSidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-const baseUrl = "http://127.0.0.1:8000/api/elearning";
+const baseUrl = "http://127.0.0.1:8000/api";
 
 function AddChapter() {
   
@@ -52,7 +52,7 @@ function AddChapter() {
         })
         .then((res) => {
           // console.log(res.data);
-          window.location.href = "/all-chapters/"+course_id;
+          window.location.href = "/add-chapter";
         });
     } catch (error) {
       console.log(error);

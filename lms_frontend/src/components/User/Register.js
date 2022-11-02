@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
-const baseUrl='http://127.0.0.1:8000/api/elearning/student/';
+const baseUrl='http://127.0.0.1:8000/api/student/';
 
 function Register(){
 
@@ -77,7 +77,7 @@ function Register(){
             <div className='row'>
                 <div className='col-6 offset-3'>
                 {studentData.status==='success' && <p className='text-success'>Thanks for Register</p>}
-                    {studentData.status==='error' && <p className='text-danger'>Something Went Wrong</p>}
+                    {!studentData.status==='error' && <p className='text-danger'>Something Went Wrong</p>}
                     <div className='card'>
                         <h5 className='card-header'>Student Register</h5>
                         <div className='card-body'>

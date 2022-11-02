@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import TrainerSidebar from "./TrainerSidebar";
 import axios from "axios";
 
-const baseUrl = "http://127.0.0.1:8000/api/elearning";
+const baseUrl = "http://127.0.0.1:8000/api";
 
 function AddCourse() {
   useEffect(() => {
@@ -79,14 +79,13 @@ function AddCourse() {
         })
         .then((res) => {
           // console.log(res.data);
-          window.location.href = "/teacher-courses/";
+          window.location.href = "/add-course/";
         });
     } catch (error) {
       console.log(error);
     }
   };
-  
-
+  // console.log(cats)
 
   return (
     <div className="container-fluid main_container">

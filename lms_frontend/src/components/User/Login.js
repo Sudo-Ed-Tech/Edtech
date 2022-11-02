@@ -2,7 +2,7 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
-const baseUrl='http://127.0.0.1:8000/api/elearning';
+const baseUrl='http://127.0.0.1:8000/api';
 
 function Login(){
     const [studentLoginData, setStudentLoginData] = useState({

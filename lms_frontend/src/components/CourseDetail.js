@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import {useEffect, useState} from 'react'
 import axios from "axios";
 import Swal from 'sweetalert2'
-
-const baseUrl='http://127.0.0.1:8000/api/elearning';
+const baseUrl='http://127.0.0.1:8000/api';
 const siteUrl='http://127.0.0.1:8000/';
+
 
 
 function CourseDetail() {
@@ -20,7 +20,6 @@ function CourseDetail() {
   const [enrollStatus, setenrollStatus]=useState();
   const [ratingStatus, setratingStatus]=useState();
   const [AvgRating, setAvgRating]=useState();
-  const [favoriteStatus, setfavoriteStatus]=useState();
   let {course_id}=useParams();
   const studentId = localStorage.getItem("studentId");
   
@@ -45,7 +44,7 @@ function CourseDetail() {
     //Fetch enrollment status
     try{
       axios.get(baseUrl+'/fetch-enroll-status/'+studentId+'/'+course_id).then((res)=>{
-        // console.log(res);
+        console.log(res);
         if (res.data.bool===true){
           setenrollStatus('success')
         }
@@ -54,30 +53,17 @@ function CourseDetail() {
         console.log(error)
       }
 
-    
+
     //Fetch ratng status
     try{
       axios.get(baseUrl+'/fetch-rating-status/'+studentId+'/'+course_id).then((res)=>{
-        // console.log(res);
+        console.log(res);
         if (res.data.bool===true){
           setratingStatus('success')
         }
         });
       }catch(error){
         console.log(error)
-      }
-
-      try{
-        axios.get(baseUrl+'/fetch-favorite-status/'+studentId+'/'+course_id).then((res)=>{
-          if(res.data.bool === 'true'){
-              setfavoriteStatus('success')
-          }else{
-            setfavoriteStatus('');
-          }
-        })
-
-      }catch(e){
-        console.log(e)
       }
 
     const studentLoginStatus=localStorage.getItem('studentLoginStatus')
@@ -125,68 +111,6 @@ function CourseDetail() {
         });
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  //Mark as Favorite
-  const markAsFavorite=()=>{
-    const _formData=new FormData();
-    _formData.append('course', course_id);
-    _formData.append('student', studentId);
-    _formData.append('status',true);
-
-    try{
-      axios.get(baseUrl+'/student-add-favorite-course/',_formData,{
-        headers:{
-          'content-type': 'multipart/form-data'
-        }
-      }).then((res)=>{
-        if (res.status===200 || res.status===201){
-          Swal.fire({
-            title:'Added to favorite',
-            icon:'success',
-            toast:true,
-            timer:10000,
-            position:"top-right",
-            timerProgressBar:true,
-            showCancelButton:false
-          });
-          setfavoriteStatus('success');
-        }
-      })
-    }catch(e){
-      console.log(e);
-    }
-  };
-
-  //Remove from favorite
-  const removeFavorite=(pk)=>{
-    const _formData=new FormData();
-    _formData.append('course', course_id);
-    _formData.append('student', studentId);
-    _formData.append('status',false);
-
-    try{
-      axios.get(baseUrl+'/student-remove-favorite-course/'+course_id+'/'+studentId,{
-        headers:{
-          'content-type': 'multipart/form-data'
-        }
-      }).then((res)=>{
-        if (res.status===200 || res.status===201){
-          Swal.fire({
-            title:'Removed From favorite',
-            icon:'success',
-            toast:true,
-            timer:10000,
-            position:"top-right",
-            timerProgressBar:true,
-            showCancelButton:false
-          });
-          setfavoriteStatus('');
-        }
-      })
-    }catch(e){
-      console.log(e);
     }
   };
 
@@ -245,9 +169,10 @@ function CourseDetail() {
               </>
             )}
           </p>
-          <p><b>Duration:</b> 3 hours 30 Minutes</p>
-          <p><b>Total Enrolled:</b> {courseData.total_enrolled_students} Student(s)</p>
-          <p><b>Rating:</b> {AvgRating}/5
+          <p className="fw-bold">Duration: 3 hours 30 Minutes</p>
+          <p className="fw-bold">Total Enrolled: {courseData.total_enrolled_students} Student(s)</p>
+          <p className="fw-bold">
+            Rating: {AvgRating}/5
             
           { enrollStatus === 'success' &&  userLoginStatus === 'success' &&
             <>  
@@ -296,104 +221,94 @@ function CourseDetail() {
           { userLoginStatus === 'success' && enrollStatus !=='success' &&
             <p><button type="button" onClick={enrollCourse} className="btn btn-success btn-sm">Enroll in this course</button></p>
           }
-          { userLoginStatus === 'success' && favoriteStatus !== 'success' &&
-            <p><button type="button" onClick={markAsFavorite} className="btn btn-outline-danger"><i className="bi bi-heart-fill"></i></button></p>
-          }
-          { userLoginStatus === 'success' && favoriteStatus === 'success' &&
-            <p><button type="button" onClick={removeFavorite} className="btn btn-danger"><i className="bi bi-heart-fill"></i></button></p>
-          }
           { userLoginStatus !== 'success' && teacherLoginStatus !=='success' &&
           <p><Link to="/user-login">Please Login to Enroll</Link></p>
           }         
         </div>
-        
       </div>
 
       {/* Course Videos */}
       <hr />
       <div className="row">
-        <div className="col-2">
+        <div className="col-3">
 
         </div>
         <div className="col-8">
       { enrollStatus === 'success' &&  userLoginStatus === 'success' && 
-        <div className="card mt-4">
-          <h5 className="card-header">In this course</h5>
-          <ul className="list-group list-group-flush">
-            {chapterData.map((chapter, index)=>
-            <li className="list-group-item" value={chapter.id}>
-              {chapter.title}
-              <span className="float-end">
-                <span className="me-5">1 Hour 30 Minutes</span>
-                <button  className="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#VideoModal"><i className="bi-youtube"></i></button>
-              </span>
+      <div className="card mt-4">
+        <h5 className="card-header">In this course</h5>
+        <ul className="list-group list-group-flush">
+          {chapterData.map((chapter, index)=>
+          <li className="list-group-item" value={chapter.id}>
+            {chapter.title}
+            <span className="float-end">
+              <span className="me-5">1 Hour 30 Minutes</span>
+              <button  className="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#VideoModal"><i className="bi-youtube"></i></button>
+            </span>
 
-              {/* Video Modal start */}
-              <div  className="modal fade" id="VideoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-xl">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title" id="exampleModalLabel">{chapter.title}</h5>
-                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                      <div className="ratio ratio-16x9">
-                        <iframe  src={chapter.video} title="YouTube video" allowfullscreen ></iframe>
-                      </div>
+            {/* Video Modal start */}
+            <div  className="modal fade" id="VideoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog modal-xl">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">{chapter.title}</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body">
+                    <div className="ratio ratio-16x9">
+                      <iframe  src={chapter.video} title="YouTube video" allowfullscreen ></iframe>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* Video Modal End */}
-            </li>
-            )}
-          </ul>
-        
-        </div>
-      } 
+            </div>
+            {/* Video Modal End */}
+          </li>
+          )}
+        </ul>
+      </div>
+} 
     </div> 
     </div> 
-      { teacherLoginStatus === 'success' && 
-        <div className="card mt-4">
-          <h5 className="card-header">In this course</h5>
-          <ul className="list-group list-group-flush">
-            {chapterData.map((chapter, index)=>
-            <li className="list-group-item" value={chapter.id}>
-              {chapter.title}
-              <span className="float-end">
-                <span className="me-5">1 Hour 30 Minutes</span>
-                <button  className="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#VideoModal"><i className="bi-youtube"></i></button>
-              </span>
+    { teacherLoginStatus === 'success' && 
+      <div className="card mt-4">
+        <h5 className="card-header">In this course</h5>
+        <ul className="list-group list-group-flush">
+          {chapterData.map((chapter, index)=>
+          <li className="list-group-item" value={chapter.id}>
+            {chapter.title}
+            <span className="float-end">
+              <span className="me-5">1 Hour 30 Minutes</span>
+              <button  className="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#VideoModal"><i className="bi-youtube"></i></button>
+            </span>
 
-              {/* Video Modal start */}
-              <div  className="modal fade" id="VideoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-xl">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title" id="exampleModalLabel">{chapter.title}</h5>
-                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                      <div className="ratio ratio-16x9">
-                        <iframe  src={chapter.video} title="YouTube video" allowfullscreen ></iframe>
-                      </div>
+            {/* Video Modal start */}
+            <div  className="modal fade" id="VideoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog modal-xl">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">{chapter.title}</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body">
+                    <div className="ratio ratio-16x9">
+                      <iframe  src={chapter.video} title="YouTube video" allowfullscreen ></iframe>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* Video Modal End */}
-            </li>
-            )}
-          </ul>
-        </div>
-      }
+            </div>
+            {/* Video Modal End */}
+          </li>
+          )}
+        </ul>
+      </div>
+}
 
 
-      <h3 className="pb-1 mb-4 mt-5">Related Course</h3>
+      <h3 className="pb-1 mb-4 mt-5">Recommended Courses</h3>
       <div className="row mb-4">
         {relatedCourseData.map((rcourse, index)=>
-          <>
-          {console.log(rcourse)}
           <div className="col-md-3">
             <div className="card">
               <Link target="_blank" to={`/course-detail/${rcourse.pk}`}><img src={`${siteUrl}media/${rcourse.fields.featured_img}`} className="card-img-top" width={300} height={300} alt="Img" /></Link>
@@ -402,7 +317,6 @@ function CourseDetail() {
               </div>
             </div>
           </div>
-          </>
         )}
       </div>
     </div>

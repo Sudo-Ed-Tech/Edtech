@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import UserSidebar from "./UserSidebar";
 import axios from "axios";
 
-const baseUrl = 'http://127.0.0.1:8000/api/elearning'
+const baseUrl = 'http://127.0.0.1:8000/api'
 
 function RecommendedCourses() {
   const [courseData, setcourseData]=useState([]);

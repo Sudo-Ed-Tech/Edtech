@@ -4,19 +4,17 @@ import TrainerSidebar from "./TrainerSidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const baseUrl = "http://127.0.0.1:8000/api/elearning";
+const baseUrl = "http://127.0.0.1:8000/api";
 
 function TeacherCourses() {
   const [courseData, setCourseData] = useState([]);
   const teacherId = localStorage.getItem("teacherId");
-  const [totalResult, settotalResult]=useState([0]);
   // console.log(teacherId);
 
   useEffect(() => {
     try {
       axios.get(baseUrl + "/teacher-course/" + teacherId).then((res) => {
         setCourseData(res.data);
-        settotalResult(res.data.length);
       });
     } catch (error) {
       console.log(error);
@@ -31,7 +29,7 @@ function TeacherCourses() {
         <aside className="col-md-2"><TrainerSidebar /></aside>
         <div className="col-md-9 mt-3">
           <div className="card">
-          <h5 className="card-header fs-4">All Courses ({totalResult}) <Link  to={`/add-course`} className="btn btn-success btn-sm ms-2 float-end fs-5">Add Course</Link></h5>
+            <h5 className="card-header">My Courses</h5>
             <div className="card-body">
               <table className="table table-bordered">
                 <thead>

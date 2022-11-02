@@ -46,9 +46,6 @@ import ChnagePassword from './User/ChangePassword';
 import TrainingDetails from './Teacher/TrainingDetails';
 import EdEnrolledStudents from './Teacher/EdEnrolledStudents';
 import UserTrainingDetails from './User/UserTrainingDetails';
-import TrainingCourses from './Training/TrainingCourses';
-import TrainingCourseDetail from './Training/TrainingCourseDetail';
-import PlayVideo from './Course/PlayVideo'
 
 
 
@@ -103,12 +100,9 @@ function Main() {
           {/* Traing */}
           <Route path="/training-details/" element={<TrainingDetails />} />
           <Route path="/edenrolled-students/:course_id" element={<EdEnrolledStudents />} /> 
+          {/* <Route path="/user-training-detail/" element={<UserTrainingDetails />} /> */}
           <Route path="/user-training-details/" element={<UserTrainingDetails />} />
-          <Route path="/training-courses/" element={<TrainingCourses />} />
-          <Route path="/training-course-detail/:course_id" element={<TrainingCourseDetail />} />
 
-          {/* Learnig Page */}
-          <Route path="/learning-course/:course_id/" element={<PlayVideo />} />
           
         </Switch>
         <Footer/>

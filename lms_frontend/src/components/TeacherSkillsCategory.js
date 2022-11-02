@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from 'axios';
-const baseUrl='http://127.0.0.1:8000/api/elearning';
+const baseUrl='http://127.0.0.1:8000/api';
 
 function TeacherSkillsCategory(){
 
@@ -30,9 +30,9 @@ function TeacherSkillsCategory(){
                 {courseData && courseData.map((course, index)=>
                 <div className="col-md-3 mb-4">
                     <div className="card mb-4" >
-                        <Link to={`/course-detail/${course.id}`}><img src={course.featured_img} className="card-img-top" alt={course.title} /></Link>
+                        <Link to={`/detail/${course.id}`}><img src={course.featured_img} className="card-img-top" alt={course.title} /></Link>
                         <div className="card-body">
-                            <h5 className="card-title"><Link to={`/course-detail/${course.id}`}>{course.title}</Link></h5>
+                            <h5 className="card-title"><Link to={`/detail/${course.id}`}>{course.title}</Link></h5>
                         </div>
                     </div>
                 </div>

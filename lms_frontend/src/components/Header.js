@@ -21,9 +21,7 @@ function Header() {
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn  btn-dark" type="submit">Search</button>
             </form>
-            <Link className="nav-link text-dark fs-5" to="/">Home</Link>
-            <Link className="nav-link text-dark fs-5" to="/">Subscribe</Link>
-            <Link className="nav-link text-dark fs-5" to="/training-courses">Training</Link>
+            <a className="nav-link active text-dark fs-5" aria-current="page" href="/#">Home</a>
             <Link className="nav-link text-dark fs-5" to="/all-courses">Course</Link>
             <li className="nav-item- dropdown">
               <a className="nav-link dropdown-toggle text-dark fs-5" href="/#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trainer</a>

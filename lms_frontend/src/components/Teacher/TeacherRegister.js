@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
-const baseUrl='http://127.0.0.1:8000/api/training/teacher/';
+const baseUrl='http://127.0.0.1:8000/api/teacher/';
 
 function TeacherRegister(){
     const [teacherData, setTeacherData]=useState({

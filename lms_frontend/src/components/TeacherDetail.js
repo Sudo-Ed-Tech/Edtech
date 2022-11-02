@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from 'react'
 import axios from "axios";
-const baseUrl='http://127.0.0.1:8000/api/elearning';
+const baseUrl='http://127.0.0.1:8000/api';
 function TeacherDetail() {
 
   const [courseData, setcourseData]=useState([]);
@@ -50,11 +50,11 @@ function TeacherDetail() {
       </div>
       {/* Course Videos */}
       <div className="card mt-4">
-        <h5 className="card-header">Created Courses</h5>
+        <h5 className="card-header">Course List</h5>
         <div className="list-group list-group-flush">
           {courseData.map((course, index)=>
           <Link
-            to={`/course-detail/${course.id}`}
+            to={`/detail/${course.id}`}
             className="list-group-item list-group-item-action"
           >
             {course.title}

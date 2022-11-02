@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios';
 import Swal  from 'sweetalert2';
 
-const baseUrl = 'http://127.0.0.1:8000/api/elearning';
+const baseUrl = 'http://127.0.0.1:8000/api';
 
 function TeacherDashboard(){
     const [dashboardData, setdashboardData] = useState([]);
@@ -15,6 +15,7 @@ function TeacherDashboard(){
         //fetch Courses
         try{
             axios.get(baseUrl+'/teacher/dashboard/'+teacherId).then((res)=>{
+                console.log(res);
                 setdashboardData(res.data);
 
             })

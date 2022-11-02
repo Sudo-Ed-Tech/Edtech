@@ -40,9 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'eLearning',
-    'training',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'lms_api.urls'
@@ -92,7 +90,7 @@ WSGI_APPLICATION = 'lms_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ctp',
+        'NAME': 'bda',
         'USER': 'ctp',
         'PASSWORD': 'ctp',
         'HOST': 'localhost',
@@ -159,7 +157,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 X_FRAME_OPTIONS = 'ALLOW-FROM http://127.0.0.1:3000/'
 
-XS_SHARING_ALLOWED_METHODS = ['POST','GET','HEAD','OPTIONS', 'PUT', 'DELETE']
+XS_SHARING_ALLOWED_METHODS = [
+    'POST', 'GET', 'HEAD', 'OPTIONS', 'PUT', 'DELETE']
 
 
 MEDIA_URL = '/media/'
