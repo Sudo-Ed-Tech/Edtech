@@ -230,7 +230,7 @@ function CourseDetail() {
 
 
   return (
-    <div className="container-fluid main_container mt-3 ">
+    <div className="container mt-3 ">
       <div className="row">
         <div className="col-4">
           <img src={courseData.featured_img} className="rounded mx-auto d-block" width={300} height={300}  alt={chapterData.title} />

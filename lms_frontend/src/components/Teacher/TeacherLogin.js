@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 const baseUrl='http://127.0.0.1:8000/api/elearning';
 
 function TeacherLogin(){
-    const teacherId=localStorage.getItem("teacherId");
     const [teacherLoginData, setTeacherLoginData] = useState({
         'email':'',
         'password':'',
@@ -62,21 +61,24 @@ function TeacherLogin(){
     return(
         <div className='container-fluid main_container'>
             <div className='row'>
-                <div className='col-5 offset-4 mt-5'>
-                    <div className='card'>
-                        <h5 className='card-header'>Trainer Login</h5>
+                <div className='col-3 mx-auto mt-5'>
+                    <div className='card mt-5'>
                         <div className='card-body'>
-                            {errorMsg && <p className='text-danger'>{errorMsg}</p>}
-                            <form>
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail1" className='form-label'>Email</label>
-                                    <input value={teacherLoginData.email} onChange={handleChange} name="email" type="email" className="form-control" />
+                            <p className='fs-3 text-center mt-3'>Trainer Login</p>
+                            
+                            {errorMsg && <p className='text-danger text-center'>{errorMsg}</p>}
+                            <hr  />
+                            <form className='mb-5'>
+                                <div className='mb-3 mt-5' style={{decoration:'none'}}>
+                                    
+                                    <input value={teacherLoginData.email} onChange={handleChange} name="email" type="email" className="form-control  text-center" placeholder='Email' />
                                 </div>
-                                <div className='mb-3'>
-                                    <label for="exampleInputPassword1" className='form-label'>Password</label>
-                                    <input value={teacherLoginData.password} onChange={handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" />
+                                <div className='mb-5 '>
+                                    <input value={teacherLoginData.password} onChange={handleChange} name="password" type="password" className="form-control text-center " id="exampleInputPassword1" placeholder='Password' />
                                 </div>
-                                <button  type="button" onClick={function(event){ submitForm(); handleLogin();}} className='btn btn-primary'>Login</button>
+                                <div className='text-center m-5 '>
+                                    <button  type="button" onClick={function(event){ submitForm(); handleLogin();}} className='btn btn-primary px-5'>Login</button>
+                                </div>
                             </form>
                         </div>
                     </div>

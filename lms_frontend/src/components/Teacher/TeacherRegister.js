@@ -70,7 +70,7 @@ function TeacherRegister(){
     });
 
     const teacherLoginStatus=localStorage.getItem('teacherLoginStatus')
-    if(teacherLoginStatus==='true'){
+    if(teacherLoginStatus===true){
         window.location.href='/teacher-dashboard';
     }
 
@@ -78,40 +78,36 @@ function TeacherRegister(){
     return(
         <div className='container mt-4'>
             <div className='row'>
-                <div className='col-6 offset-3'>
+                <div className='col-4 mx-auto'>
                     {teacherData.status==='success' && <p className='text-success'>Thanks for Register</p>}
                     {!teacherData.status==='error' && <p className='text-danger'>Something Went Wrong</p>}
                     <div className='card'>
-                        <h5 className='card-header'>Trainer Register</h5>
                         <div className='card-body'>
+                            <p className='fs-4 text-center mt-3 mb-3'>Trainer Register</p>
+                            <hr />
                             <form > 
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail1" className='form-label'>Full Name</label>
-                                    <input value={teacherData.full_name} onChange={handleChange} type='text' name='full_name' className='form-control' />
+                                <div className='mb-3 mt-5'>
+                                    <input value={teacherData.full_name} onChange={handleChange} type='text' name='full_name' className='form-control' placeholder='Name' />
                                 </div>
                                 <div className='mb-3'>
-                                    <label for="exampleInputEmail1" className='form-label'>Email</label>
-                                    <input value={teacherData.email} onChange={handleChange} type='email' name="email" className='form-control' />
+                                    <input value={teacherData.email} onChange={handleChange} type='email' name="email" className='form-control' placeholder='Email' />
                                 </div>
                                 <div className='mb-3'>
-                                    <label for="exampleInputEmail1" className='form-label'>Password</label>
-                                    <input value={teacherData.password} onChange={handleChange}  type='password' name="password" className='form-control' id='exampleInputPassword1' />
+                                    <input value={teacherData.password} onChange={handleChange}  type='password' name="password" className='form-control' id='exampleInputPassword1' placeholder='Password' />
                                 </div>
                                 <div className='mb-3'>
-                                    <label for="exampleInputEmail1" className='form-label'>Phone Number</label>
-                                    <input value={teacherData.mobile_no} onChange={handleChange} type='number'name="mobile_no" className='form-control' />
+                                    <input value={teacherData.mobile_no} onChange={handleChange} type='text'name="mobile_no" className='form-control' placeholder='Phone'/>
                                 </div>
                                 <div className='mb-3'>
-                                    <label for="exampleInputEmail1" className='form-label'>Qualifications</label>
-                                    <input value={teacherData.qualification} onChange={handleChange}type='text' name="qualification" className='form-control' />
+                                    <input value={teacherData.qualification} onChange={handleChange}type='text' name="qualification" className='form-control' placeholder='Qualification' />
                                 </div>
                                 
                                 <div className='mb-3'>
-                                    <label for="exampleInputEmail1" className='form-label'>Skills</label>
-                                    <textarea value={teacherData.skills} onChange={handleChange} name="skills" className='form-control'></textarea>
-                                    <div className='form-yext' id='emailHelp'>PHP, Python, JS, etc.</div>
+                                    <textarea value={teacherData.skills} onChange={handleChange} name="skills" className='form-control' placeholder='Skills: Python, PHP (Enter Comma Separated values)'></textarea>
                                 </div>
-                                <button onClick={function(event){ submitForm(); handleLogin();}} type='button' className='btn btn-primary'>Register</button>
+                                <div className='text-center mt-5 '>
+                                    <button onClick={function(event){ submitForm(); handleLogin();}} type='button' className='btn btn-primary'>Register</button>
+                                </div>
                             </form>
                         </div>
                     </div>

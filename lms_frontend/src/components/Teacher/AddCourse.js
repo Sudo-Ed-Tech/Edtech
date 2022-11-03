@@ -10,7 +10,6 @@ function AddCourse() {
   });
 
   const [cats, setCates] = useState([]);
-  const [teachers, setTeachers] = useState([]);
   const teacherId = localStorage.getItem("teacherId");
 
   const [courseData, setCourseData] = useState({

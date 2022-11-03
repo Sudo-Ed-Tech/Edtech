@@ -366,7 +366,7 @@ function TrainingCourseDetail() {
           )}
           {userLoginStatus !== "success" && teacherLoginStatus !== "success" && (
             <p>
-              <Link to="/user-login">Please Login to Enroll</Link>
+              <Link to="/lg/user-login">Please Login to Enroll</Link>
             </p>
           )}
         </div>

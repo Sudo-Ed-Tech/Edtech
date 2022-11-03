@@ -60,22 +60,23 @@ function Login(){
     }
 
     return(
-        <div className='container mt-4'>
+        <div className='container-fluid main_container mt-5'>
             <div className='row'>
-                <div className='col-6 offset-3'>
-                    <div className='card'>
-                        <h5 className='card-header'>User Login</h5>
+                <div className='col-3 mx-auto mt-3'>
+                    <div className='card mt-5'>
                         <div className='card-body'>
-                            {errorMsg && <p className='text-danger'>{errorMsg}</p>}
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail" className='form-label'>Email</label>
-                                    <input value={studentLoginData.email} onChange={handleChange} name="email" type='email' className="form-control" />
-                                </div>
-                                <div className='mb-3'>
-                                    <label for="exampleInputPassword1" className='form-label'>Password</label>
-                                    <input value={studentLoginData.password} onChange={handleChange} name="password" type='password' className="form-control" id="exampleInputPassword1"/>
-                                </div>
-                                <button type='button'onClick={function(event){ submitForm(); handleLogin();}} className='btn btn-primary'>Login</button>
+                            <p className='fs-4 text-center mt-3 mb-3'>User Login</p>
+                            {errorMsg && <p className='text-danger text-center'>{errorMsg}</p>}
+                            <hr/>
+                            <div className='mb-3 mt-5'>
+                                <input value={studentLoginData.email} onChange={handleChange} name="email" type='email' className="form-control text-center" placeholder='Email' />
+                            </div>
+                            <div className='mb-5'>
+                                <input value={studentLoginData.password} onChange={handleChange} name="password" type='password' className="form-control text-center" id="exampleInputPassword1" placeholder='Password'/>
+                            </div>
+                            <div className='mt-5 mb-3 text-center '>
+                            <button type='button'onClick={function(event){ submitForm(); handleLogin();}} className='btn btn-primary px-5'>Login</button>
+                            </div>
                         </div>
                     </div>
                 </div>

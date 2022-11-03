@@ -9,6 +9,7 @@ function TeacherDetail() {
   const [courseData, setcourseData]=useState([]);
   const [teacherData, setteacherData]=useState([]);
   const [skilListData, setskilListData]=useState([]);
+  const [tracherResume, setTeacherResume]=useState([]);
   let { teacher_id } = useParams();
 
 
@@ -22,7 +23,26 @@ function TeacherDetail() {
     }catch(error){
       console.log(error)
     }
+
+    try{
+      axios.get(baseUrl+'/teacher/resume/'+teacher_id).then((res)=>{
+        setTeacherResume(res.data)
+      })
+
+    }catch(e){
+      console.log(e)
+    }
   },[])
+
+  
+  //Resume 
+  const Resume = ()=>{
+    {tracherResume.map((res, index)=>(
+      window.location.href=res.resume
+    ))
+    }
+  }
+
 
   return (
     <div className="container mt-3 ">
@@ -43,7 +63,7 @@ function TeacherDetail() {
             )}
           </p>
           <p className="fw-bold">
-            Recent Course: <Link to="/teacher-detail/1">IoT Security</Link>
+            Resume: <Link onClick={Resume}>View</Link>
           </p>
           <p className="fw-bold">Rating: 4/5</p>
         </div>

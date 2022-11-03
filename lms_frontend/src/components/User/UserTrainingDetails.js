@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserSidebar from "./UserSidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";

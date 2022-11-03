@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, useParams} from "react-router-dom";
 import TrainerSidebar from "./TrainerSidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";

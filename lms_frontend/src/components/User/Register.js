@@ -75,38 +75,34 @@ function Register(){
     return(
         <div className='container mt-4'>
             <div className='row'>
-                <div className='col-6 offset-3'>
-                {studentData.status==='success' && <p className='text-success'>Thanks for Register</p>}
-                    {studentData.status==='error' && <p className='text-danger'>Something Went Wrong</p>}
+                <div className='col-4 mx-auto'>
                     <div className='card'>
-                        <h5 className='card-header'>Student Register</h5>
+                        {studentData.status==='success' && <p className='text-success'>Thanks for Register</p>}
+                        {studentData.status==='error' && <p className='text-danger'>Something Went Wrong</p>}
                         <div className='card-body'>
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail" className='form-label'>Full Name</label>
-                                    <input type='text' onChange={handleChange} name='full_name' className='form-control' />
-                                </div>
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail" className='form-label'>Username</label>
-                                    <input type='text' onChange={handleChange} name='username' className='form-control' />
-                                </div>
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail" className='form-label'>Email</label>
-                                    <input type='email' onChange={handleChange} name='email' className='form-control' />
-                                </div>
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail" className='form-label'>Password</label>
-                                    <input type='password' onChange={handleChange} name='password' className='form-control' id='exampleInputPassword1' />
-                                </div>
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail" className='form-label'>Qualification</label>
-                                    <input type='text' onChange={handleChange} name="qualification" className='form-control' id='exampleInputPassword1' />
-                                </div>
-                                <div className='mb-3'>
-                                    <label for="exampleInputEmail" className='form-label'>Interests</label>
-                                    <textarea className='form-control' onChange={handleChange} name='interests'></textarea>
-                                    <div className='form-yext' id='emailHelp'>PHP, Python, JS, etc.</div>
-                                </div>
-                                <button type='button' onClick={function(event){ submitForm(); handleLogin();}} className='btn btn-primary'>Register</button>
+                        <p className='fs-4 text-center  mt-3 mb-3'>Student Register</p>
+                        <hr/>
+                            <div className='mb-3 mt-3'>
+                                <input type='text' onChange={handleChange} name='full_name' className='form-control mt-3' placeholder='Name' />
+                            </div>
+                            <div className='mb-3'>
+                                <input type='text' onChange={handleChange} name='username' className='form-control' placeholder='Username' />
+                            </div>
+                            <div className='mb-3'>
+                                <input type='email' onChange={handleChange} name='email' className='form-control' placeholder='Email'/>
+                            </div>
+                            <div className='mb-3'>
+                                <input type='password' onChange={handleChange} name='password' className='form-control' id='exampleInputPassword1' placeholder='Password' />
+                            </div>
+                            <div className='mb-3'>
+                                <input type='text' onChange={handleChange} name="qualification" className='form-control' id='exampleInputPassword1' placeholder='Qualification' />
+                            </div>
+                            <div className='mb-3'>
+                                <textarea className='form-control' onChange={handleChange} name='interests' placeholder='Interests: , Security, Python (Comma Saparated Value'></textarea>
+                            </div>
+                            <div className='text-center mt-3'>
+                            <button type='button' onClick={function(event){ submitForm(); handleLogin();}} className='btn btn-primary'>Register</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 const baseUrl = "http://127.0.0.1:8000/api/elearning";
@@ -11,7 +11,7 @@ function Home() {
   
   useEffect(() => {
     try {
-      axios.get(baseUrl + "/course/").then((res) => {
+      axios.get(baseUrl + "/courses/").then((res) => {
         setCourseData(res.data);
       });
     } catch (error) {
@@ -135,7 +135,7 @@ function Home() {
           </h3>
           <div className="row">
             {trainingCourseData.map((course, index) => (
-                              <div className="col-md-3 mb-4">
+                <div className="col-md-3 mb-4">
                   <div className="card w-100">
                     <Link to={`/training-course-detail/${course.id}`}>
                       <img
@@ -151,12 +151,12 @@ function Home() {
                       <h5 className="card-title">
                         <Link to={`/training-course-detail/${course.id}`}>{course.title}</Link>
                       </h5>
-                      <p><b>Detail:</b>&nbsp;&nbsp; {course.description}...<Link to={`/training-course-detail/${course.id}`}>learn more</Link></p>
+                       <p><b>Detail:</b>&nbsp;&nbsp; {course.description}...<Link to={`/training-course-detail/${course.id}`}>learn more</Link></p>
                     </div>
                     <div className="card-footer">
                       <div className="title">
                         <span><b>Rating:&nbsp;&nbsp;{course.course_rating}/5</b></span>
-                        <span className="float-end"><b>Enrolled:&nbsp;&nbsp;{course.total_enrolled_students}</b></span>
+                        <span className="float-end"><b>Enrolled:&nbsp;&nbsp;{course.training_enrolled_student}</b></span>
                       </div>
                     </div>
                   </div>
@@ -164,7 +164,7 @@ function Home() {
               ))}
           </div>
           {/* End Training Courses */}
-
+          <hr />
           {/* Latest Course */}
           <h3 className="pb-1 mb-4">
             Latest Courses{" "}
@@ -193,6 +193,7 @@ function Home() {
                       <h5 className="card-title">
                         <Link to={`/course-detail/${course.id}`}>{course.title}</Link>
                       </h5>
+                      <p className="fw-bold">Course by: <Link to={`/teacher-detail/${course.teacher.id}`}>{course.teacher.full_name}</Link></p>
                       <p><b>Detail:</b>&nbsp;&nbsp; {course.description}...<Link to={`/course-detail/${course.id}`}>learn more</Link></p>
                     </div>
                     <div className="card-footer">
@@ -208,7 +209,7 @@ function Home() {
               ))}
           </div>
           {/* End Latest Courses */}
-
+          <hr />
           {/* Popular Course */}
           <h3 className="pb-1 mb-4 mt-5">
             Popular Courses{" "}
@@ -219,7 +220,7 @@ function Home() {
           <div className="row">
             {courseData.map((course, index) => (
               <>
-              {course.teacher.id !==2 &&
+              {course.course_rating >=4  &&
                 <div className="col-md-3 mb-4">
                   <div className="card w-100">
                     <Link to={`/course-detail/${course.id}`}>
@@ -251,7 +252,7 @@ function Home() {
               ))}
           </div>
           {/* End popular Courses */}
-
+                <hr />
           {/* Featured Teachers */}
           <h3 className="pb-1 mb-4 mt-5">
             Popular Teachers
@@ -263,7 +264,7 @@ function Home() {
           {teacherData.map((teacher, index) => (
             <div className="col-md-3 mb-4">
               <div className="card">
-                <Link to={`/detail/}`}>
+                <Link to={`/course-detail/}`}>
                   <img
                     src={"logo512.png"}
                     className="card-img-top"
@@ -287,7 +288,7 @@ function Home() {
             ))}
           </div>
           {/* End Featured Teacheers */}
-
+          <hr />
           {/* Student Testimonials */}
           <h3 className="pb-1 mb-4 mt-5">Student Testimonials</h3>
           <div

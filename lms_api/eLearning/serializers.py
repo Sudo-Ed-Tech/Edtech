@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from . import models
-
+from django.contrib.flatpages.models import FlatPage
 
 class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,6 +13,11 @@ class TeacherSerializer(serializers.ModelSerializer):
         self.Meta.depth = 0
         if request and request.method == 'GET':
             self.Meta.depth =1  
+
+class TeacherResumeSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model= models.TeacherResume
+        fields=['id','teacher','resume']
 
 class TeacherDashboardSerializer(serializers.ModelSerializer):
     class Meta:
@@ -131,4 +136,18 @@ class TrainingDetailsSerializer(serializers.ModelSerializer):
         self.Meta.depth = 0
         if request and request.method == 'GET':
             self.Meta.depth = 3
+
+
+#Flat page serializer
+class FlatPageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=FlatPage
+        fields=['id','title','content','url']
+
+
+# #popular Course Serializer
+# class PopularCoursesSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=models.PopularCourses
+#         fields=['id','course','rating']
 

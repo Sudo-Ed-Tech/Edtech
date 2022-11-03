@@ -2,11 +2,23 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
+    path('pages/', views.FlatPageList.as_view()),
+    path('page/<int:pk>/<str:page_slug>', views.FlatPageDetail.as_view()),
+    
     # Teacher
     path('teacher/', views.TeacherList.as_view()),
     path('teacher/dashboard/<int:pk>', views.TeacherDashboard.as_view()),
     path('teacher/<int:pk>', views.TeacherDetail.as_view()),
     path('teacher-login', views.teacher_login),
+
+    #Teacher Resume
+    path('teacher/resumes/', views.TeacherResumeList.as_view()),
+    path('teacher/resume/<int:teacher_id>', views.TeacherResume.as_view()),
+    
+    
+
+    path('login/', views.AuthencationView.as_view()),
 
     
     # Course Category
@@ -62,5 +74,8 @@ urlpatterns = [
     path('fetch-training-all-enrolled-students/<int:teacher_id>', views.TrainingEnrolledStudentList.as_view()),
     path('fetch-training-enrolled-students/<int:course_id>', views.TrainingEnrolledStudentList.as_view()),
     path('fetch-training-enrolled-courses/<int:student_id>', views.TrainingEnrolledStudentList.as_view()),
-    
+
+
+    #Popular Course List
+    #path('popular-course/', views.PopularCourseList.as_view()),
 ]

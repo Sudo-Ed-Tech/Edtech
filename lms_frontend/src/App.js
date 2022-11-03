@@ -1,9 +1,9 @@
-import Main from './components/Main';
 import React from 'react';
+import Didactic from './components/Didactic';
 function App() {
   return (
     <div className="App">
-     <Main/>
+    <Didactic/>
     </div>
   );
 }

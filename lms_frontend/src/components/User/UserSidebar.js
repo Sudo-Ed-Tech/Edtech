@@ -37,11 +37,6 @@ function UserSidebar(){
                         <Link to="/recommended-courses" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Recommended Courses</Link>
                     </a>
                 </li>
-                <li>
-                    <a  class="nav-link text-white">
-                        <Link to="/recommended-courses" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Completed Courses</Link>
-                    </a>
-                </li>
             </ul>
             <hr />
             <div class="dropdown">
@@ -61,7 +56,7 @@ function UserSidebar(){
                     <li><hr class="dropdown-divider"/></li>
                     <li>
                         <a class="dropdown-item" href="#">
-                            <Link to="/user-logout" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Sign out</Link>
+                            <Link to="/lg/user-logout" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Sign out</Link>
                         </a>
                     </li>
                     

@@ -24,39 +24,39 @@ class CourseCreatorList(generics.ListCreateAPIView):
 class CourseCreatorDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.CourseCreator.objects.all()
     serializer_class = CourseCreatorSerializer
-    #permission_classes=[permissions.IsAuthenticated]
+    # permission_classes=[permissions.IsAuthenticated]
 
 
 #Training Course
 class TrainingCourseList(generics.ListCreateAPIView):
     queryset = models.TrainingCourse.objects.all()
     serializer_class = TrainingCourseSerializer
-
+    # permission_classes=[permissions.IsAuthenticated]
 
 #Training Course detail view
 class TrainingCourseDetailView(generics.RetrieveAPIView):
     queryset = models.TrainingCourse.objects.all()
     serializer_class = TrainingCourseSerializer
-
+    # permission_classes=[permissions.IsAuthenticated]
 
 #Trainigng Enrollment 
 class StudentTrainingEnrollmentList(generics.ListCreateAPIView):
     queryset = models.StudentTrainingEnrollment.objects.all()
     serializer_class = StudentTrainingEnrollmentSerializer
-
+    # permission_classes=[permissions.IsAuthenticated]
 
 #Traing Enroll Status
 def fetch_training_enroll_status(request, student_id, course_id):
     student = models.Student.objects.filter(id=student_id).first()
     training_course = models.TrainingCourse.objects.filter(id=course_id).first()
     enrollStatus = models.StudentTrainingEnrollment.objects.filter(training_course=training_course, student=student).count()
-
+    
     if enrollStatus:
         return JsonResponse({'bool': True})
     else:
         return JsonResponse({'bool': False})
 
-
+    
 # Training Enrolled Student List
 class TrainingEnrolledStudentList(generics.ListAPIView):
     queryset = models.StudentTrainingEnrollment.objects.all()
@@ -77,14 +77,14 @@ class TrainingEnrolledStudentList(generics.ListAPIView):
             student_id = self.kwargs['student_id']
             student = models.Student.objects.get(pk=student_id)
             return models.StudentTrainingEnrollment.objects.filter(student=student).distinct()
-
+    # permission_classes=[permissions.IsAuthenticated]
 
 
 #Traing Course Review list
 class AllTrainingReviewsList(generics.ListAPIView):
     queryset = models.TrainingCourseRating.objects.all()
     serializer_class = TrainingCourseRatingSerializer
-
+    # permission_classes=[permissions.IsAuthenticated]
 
 #Training Course Rating List
 
@@ -100,6 +100,7 @@ class TrainingCourseRatingList(generics.ListCreateAPIView):
         
         else:
             pass
+    # permission_classes=[permissions.IsAuthenticated]
 
 #Training Rating Status [studnet rated a specific training course]
 def fetch_rating_status(request, student_id, course_id):
@@ -126,6 +127,7 @@ def fetch_training_rating_status(request,course_id):
 class TrainingDetailsList(generics.ListAPIView):
     queryset = models.TrainingTrainingDetails.objects.all()
     serializer_class = TrainingDetailsSerializer
+    # permission_classes=[permissions.IsAuthenticated]
 
 
 class TrainerTrainingDetailsList(generics.ListAPIView):
@@ -140,7 +142,7 @@ class TrainerTrainingDetailsList(generics.ListAPIView):
         
         else:
             pass
-
+    # permission_classes=[permissions.IsAuthenticated]
             
 
 
@@ -162,13 +164,13 @@ class TrainingCourseRecordingList(generics.ListCreateAPIView):
         else:
             pass
 
-
+    # permission_classes=[permissions.IsAuthenticated]
 
 #Training Session View
 class TrainingSessionsList(generics.ListAPIView):
     queryset=models.TrainingSessions.objects.all()
     serializer_class = TrainingSessionsSerializer
-
+    # permission_classes=[permissions.IsAuthenticated]
 
 
 
@@ -191,3 +193,4 @@ class TrainingCourseSessionsList(generics.ListCreateAPIView):
 
         else:
             pass
+    # permission_classes=[permissions.IsAuthenticated]

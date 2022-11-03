@@ -1,8 +1,3 @@
-
-from email.policy import default
-from itertools import count
-from lib2to3.pgen2.pgen import DFAState
-from tabnanny import verbose
 from django.db import models
 from django.core import serializers
 
@@ -42,7 +37,20 @@ class Teacher(models.Model):
             course__teacher=self).count()
         return total_students
 
+#Teacher resume
+class TeacherResume(models.Model):
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    resume=models.FileField()
+    
+    class Meta:
+        verbose_name_plural= "44. Teacher Resume"
 
+    def __str__(self):
+        return self.teacher.full_name
+
+    
+
+#Course Category
 class CourseCategory(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField()
@@ -86,8 +94,7 @@ class Course(models.Model):
         return training_enrolled_student
 
     def course_rating(self):
-        course_rating = CourseRating.objects.filter(
-            course=self).aggregate(avg_rating=models.Avg('rating'))
+        course_rating = CourseRating.objects.filter(course=self).aggregate(avg_rating=models.Avg('rating'))
         return course_rating['avg_rating']
 
     # Student enrolled in traiing
@@ -167,7 +174,7 @@ class CourseRating(models.Model):
         verbose_name_plural = "7. Course Rating"
 
     def __str__(self):
-        return f"{self.course} - {self.student} - {self.rating}"
+        return f"{self.course.title} - {self.rating}"
 
 
 # Training Details
@@ -205,3 +212,18 @@ class StudentTrainingEnrollment(models.Model):
     def user_course_list(self):
         course_list = models.auth_user.objects.filter(username='admin')
         return course_list
+
+
+
+
+# # Popular Courses
+# class PopularCourses(models.Model):
+#     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+#     rating = models.ForeignKey(CourseRating, on_delete=models.CASCADE)
+
+#     class Meta:
+#         verbose_name_plural = "900. Popular Courses"
+
+#     def __str__(self):
+#         return f"{self.course.title} - {self.rating.rating}"
+

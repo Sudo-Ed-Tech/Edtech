@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from 'axios';
-const baseUrl='http://127.0.0.1:8000/api';
+const baseUrl='http://127.0.0.1:8000/api/elearning';
 
 function PopularCourses() {
   const [courseData, setCourseData]=useState([]);
 
     useEffect(()=>{
         try{
-            axios.get(baseUrl+'/course/').then((res)=>{
+            axios.get(baseUrl+'/courses/').then((res)=>{
                 setCourseData(res.data)
             })
         }catch(error){
@@ -20,16 +20,17 @@ function PopularCourses() {
         <div className="container-fluid main_container mt-3">
              <div className="row">
                 <div className="col-3">
-                    course category
+                    Popular Course Category
                 </div>
-            {/* Latest Course */}
+            {/* Popular Course */}
             <div className="col-8">
                     
                
-            <h3 className="pb-1 mb-4">All Courses</h3>
+            <h3 className="pb-1 mb-4">All Popular Courses</h3>
             <div className="row">
-            {courseData &&
-              courseData.map((course, index) => (
+            {courseData.map((course, index) => (
+              <>
+              {course.course_rating >=4  &&
                 <div className="col-md-3 mb-4">
                   <div className="card w-100">
                     <Link to={`/course-detail/${course.id}`}>
@@ -56,6 +57,8 @@ function PopularCourses() {
                     </div>
                   </div>
                 </div>
+              }
+              </>
               ))}
           </div>
             
