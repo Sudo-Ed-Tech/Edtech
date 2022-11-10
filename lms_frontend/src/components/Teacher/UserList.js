@@ -3,7 +3,7 @@ import TrainerSidebar from "./TrainerSidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const baseUrl = "http://127.0.0.1:8000/api/training";
+const baseUrl = "http://127.0.0.1:8000/api/elearning";
 
 function UserList() {
   const [studentData, setstudentData] = useState([]);

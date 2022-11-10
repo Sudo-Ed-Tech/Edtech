@@ -18,7 +18,7 @@ urlpatterns = [
     
     
 
-    path('login/', views.AuthencationView.as_view()),
+    path('login/', views.AuthenticationView.as_view()),
 
     
     # Course Category
@@ -33,7 +33,7 @@ urlpatterns = [
     path('course-chapters/<int:course_id>', views.CourseChapterList.as_view()),
     path('course-chapters-list/<int:course_id>/<int:chapter_id>', views.course_chapter),
 
-    # Teacher course detials
+    # Teacher course details
     path('teacher-course/<int:teacher_id>', views.TeacherCourseList.as_view()),
     path('teacher-course-detail/<int:pk>', views.TeacherCourseDetail.as_view()),
 

@@ -39,12 +39,6 @@ function AddCourse() {
     // }
   }, []);
 
- 
-    
-  
-
-
-
   const handleChange = (event) => {
     setCourseData({
       ...courseData,
@@ -70,10 +64,9 @@ function AddCourse() {
 
     try {
       axios
-        .post(baseUrl + "/course/", _FormData, {
+        .post(baseUrl + "/courses/", _FormData, {
           headers: {
             "content-type": "multipart/form-data application/mp4",
- 
           },
         })
         .then((res) => {
@@ -84,8 +77,6 @@ function AddCourse() {
       console.log(error);
     }
   };
-  
-
 
   return (
     <div className="container-fluid main_container">
@@ -98,9 +89,22 @@ function AddCourse() {
             <h5 className="card-header">Add Course</h5>
             <div className="card-body">
               <div className="mb-3">
-                <label for="title" className="form-label"> Category</label>
-                <select name="category" onChange={handleChange} className="form-control">
-                  {cats.map((category, index) => {return ( <option key={index} value={category.id}>{category.title}</option>)})}
+                <label for="title" className="form-label">
+                  {" "}
+                  Category
+                </label>
+                <select
+                  name="category"
+                  onChange={handleChange}
+                  className="form-control"
+                >
+                  {cats.map((category, index) => {
+                    return (
+                      <option key={index} value={category.id}>
+                        {category.title}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
               {/* <div className="mb-3">
@@ -110,28 +114,65 @@ function AddCourse() {
                 </select>
               </div> */}
               <div className="mb-3">
-                <label for="title" className="form-label">Title</label>
+                <label for="title" className="form-label">
+                  Title
+                </label>
                 <div className="col-sm-10">
-                  <input onChange={handleChange} name="title" type="text" className="form-control" id="staticEmail" />
+                  <input
+                    onChange={handleChange}
+                    name="title"
+                    type="text"
+                    className="form-control"
+                    id="staticEmail"
+                  />
                 </div>
               </div>
               <div className="mb-3">
-                <label for="description" className="form-label">  Description </label>
+                <label for="description" className="form-label">
+                  {" "}
+                  Description{" "}
+                </label>
                 <div className="col-sm-10">
-                  <textarea  onChange={handleChange}  name="description" className="form-control"></textarea>
+                  <textarea
+                    onChange={handleChange}
+                    name="description"
+                    className="form-control"
+                  ></textarea>
                 </div>
               </div>
               <div className="mb-3">
-                <label for="image" className="form-label"> featured Image </label>
+                <label for="image" className="form-label">
+                  {" "}
+                  featured Image{" "}
+                </label>
                 <div className="col-sm-10">
-                  <input  onChange={handleFileChange} name="featured_img" type="file"  className="form-control" id="inputPassword" />
+                  <input
+                    onChange={handleFileChange}
+                    name="featured_img"
+                    type="file"
+                    className="form-control"
+                    id="inputPassword"
+                  />
                 </div>
               </div>
               <div className="mb-3">
-                <label for="technology" className="form-label"> Technologies </label>
-                <textarea onChange={handleChange} name="technologies" className="form-control"></textarea>
+                <label for="technology" className="form-label">
+                  {" "}
+                  Technologies{" "}
+                </label>
+                <textarea
+                  onChange={handleChange}
+                  name="technologies"
+                  className="form-control"
+                ></textarea>
               </div>
-              <button type="button" onClick={submitForm} className="btn btn-primary">Add</button>
+              <button
+                type="button"
+                onClick={submitForm}
+                className="btn btn-primary"
+              >
+                Add
+              </button>
             </div>
           </div>
         </section>

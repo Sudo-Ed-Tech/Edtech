@@ -44,7 +44,7 @@ function AboutUs() {
         }
     return( 
         <div className="container mt-5">
-            <div className="bg-primary py-1 px-2 mb-5 fs-6 text-light" ><h5>Our</h5></div>
+            <div className="bg-primary py-1 px-2 mb-5 fs-6 text-light" ><h5>Our Team</h5></div>
             <br />
           <div className="row">
             { aboutus.map((about, index) => (

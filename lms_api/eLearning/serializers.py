@@ -72,14 +72,14 @@ class ChapterSerializer(serializers.ModelSerializer):
         if request and request.method == 'GET':
             self.Meta.depth =2
 
-class StudnetSerializer(serializers.ModelSerializer):
+class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Student
         fields = ['id', 'full_name', 'username', 'email','password', 'qualification', 'interests','enrolled_student','enrolled_training_student']
         # depth =1
 
     def __init__(self, *args, **kwargs):
-        super(StudnetSerializer, self).__init__(*args, **kwargs)
+        super(StudentSerializer, self).__init__(*args, **kwargs)
         request=self.context.get('request')
         self.Meta.depth = 0
         if request and request.method == 'GET':

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 const baseUrl = "http://127.0.0.1:8000/api/elearning";
 const trainingUrl = "http://127.0.0.1:8000/api/training";
+
 function Home() {
   const [courseData, setCourseData] = useState([]);
   const [teacherData, setTeacherData] = useState([]);

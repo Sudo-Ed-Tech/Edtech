@@ -90,21 +90,16 @@ function UserTrainingDetails() {
                         ...more
                       </Link>
                     </p>
-                    <p>
-                      <strong>Date:</strong> {trainingData.date}
-                    </p>
-                    <p>
-                      <strong>Time:</strong> {trainingData.f_time} to{" "}
-                      {trainingData.t_time}
-                    </p>
+                    
                     {/* <p><strong>Trainer:</strong> <Link to={`/teacher-detail/`+teacherData.id}>{teacherData.full_name}</Link></p> */}
                     <hr />
                     <button
                       target="_blank"
                       className="btn btn-primary"
-                      onClick={RedMeeting}
-                    >
-                      Join meeting
+                     
+                    ><Link to={`/training-course-detail/${row.training_course.id}`} style={{textDecoration:'none', color:'white'}}>
+                      View 
+                      </Link>
                     </button>
                   </div>
                 </div>

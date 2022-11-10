@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework import serializers
 from rest_framework.response import Response
 from .serializers import (CategorySerializer, CourseRatingSerializer, TeacherSerializer, CourseSerializer,
-                          ChapterSerializer, StudnetSerializer, StudentCourseEnrollSerializer, TeacherDashboardSerializer, TrainingDetailsSerializer,
+                          ChapterSerializer, StudentSerializer, StudentCourseEnrollSerializer, TeacherDashboardSerializer, TrainingDetailsSerializer,
                           StudentFavoriteCourseSerializer, StudentTrainingEnrollSerializer, FlatPageSerializer, TeacherResumeSerializer)
 from rest_framework import generics
 from rest_framework import permissions
@@ -17,7 +17,7 @@ from django.contrib.flatpages.models import FlatPage
 
 
 
-class AuthencationView(generics.RetrieveAPIView):
+class AuthenticationView(generics.RetrieveAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
 
@@ -80,7 +80,7 @@ def teacher_login(request):
 
 class StudentList(generics.ListCreateAPIView):
     queryset = models.Student.objects.all()
-    serializer_class = StudnetSerializer
+    serializer_class = StudentSerializer
     # permission_classes=[permissions.IsAuthenticated]
 
 
@@ -150,7 +150,7 @@ class CourseDetailView(generics.RetrieveAPIView):
 
         
 
-# Favortie Courses
+# Favorite Courses
 class StudentFavoriteCourseList(generics.ListCreateAPIView):
     queryset = models.StudentFavoriteCourse.objects.all()
     serializer_class = StudentFavoriteCourseSerializer
@@ -333,7 +333,7 @@ class AllReviewsList(generics.ListAPIView):
     # permission_classes=[permissions.IsAuthenticated]
     
 
-# Reting Lsit
+# Rating List
 class CourseRatingList(generics.ListCreateAPIView):
     queryset = models.CourseRating.objects.all()
     serializer_class = CourseRatingSerializer
