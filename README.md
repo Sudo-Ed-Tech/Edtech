@@ -193,10 +193,5 @@ This is the Fronend_
 		<img src="https://img.shields.io/twitter/follow/7absec?logo=twitter&style=for-the-badge" alt="7absec" />
 	</a> 
 </p>
-<p align="left">
-	<a href="https://linkedin.com/in/7absec" target="blank">
-		<img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="7absec" height="30" width="40" />
-	</a>
-</p>
 <a href="https://www.buymeacoffee.com/7absec" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
