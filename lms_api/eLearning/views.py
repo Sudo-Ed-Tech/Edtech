@@ -7,7 +7,7 @@ from rest_framework import serializers
 from rest_framework.response import Response
 from .serializers import (CategorySerializer, CourseRatingSerializer, TeacherSerializer, CourseSerializer,
                           ChapterSerializer, StudentSerializer, StudentCourseEnrollSerializer, TeacherDashboardSerializer, TrainingDetailsSerializer,
-                          StudentFavoriteCourseSerializer, StudentTrainingEnrollSerializer, FlatPageSerializer, TeacherResumeSerializer)
+                          StudentFavoriteCourseSerializer, StudentTrainingEnrollSerializer, FlatPageSerializer, TeacherResumeSerializer, StudentAssignmentSerializer)
 from rest_framework import generics
 from rest_framework import permissions
 from . import models
@@ -414,3 +414,15 @@ class FlatPageDetail(generics.RetrieveAPIView):
 #         if rating >= 4.5:
 #             return models.PopularCourses.objects.filter(rating=rating)
         
+
+#Assignment
+class AssignmentList(generics.ListCreateAPIView):
+    queryset=models.StudentAssignment.objects.all()
+    serializer_class=StudentAssignmentSerializer
+
+    def get_queryset(self):
+        student_id=self.kwargs['student_id']
+        teacher_id=self.kwargs['teacher_id']
+        student=models.Student.objects.get(pk=student_id)
+        teacher=models.Teacher.objects.get(pk=teacher_id)
+        return models.StudentAssignment.objects.filter(student=student, teacher=teacher)

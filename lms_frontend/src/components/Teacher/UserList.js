@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import TrainerSidebar from "./TrainerSidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -45,6 +46,11 @@ function UserList() {
                       <td>{row.student.email}</td>
                       <td>{row.student.username}</td>
                       <td>{row.student.interests}</td>
+                      <td>
+                        <Link to={`/show-assignment/${teacherId}/${row.student.id}`} className="btn btn-sm btn-warning">Assignment</Link>
+                        <Link to={`/add-assignment/${teacherId}/${row.student.id}`} className="btn btn-sm btn-success ms-2">Add Assignment</Link>
+                        
+                      </td>
                     </tr>
                   ))}
                 </tbody>

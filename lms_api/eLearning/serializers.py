@@ -34,7 +34,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Course
-        fields = ['id', 'category', 'teacher', 'title', 'description', 'featured_img','technologies', 'course_chapter', 'related_videos', 'tech_list','enrolled_courses','total_enrolled_students','course_rating']
+        fields = ['id', 'category', 'teacher', 'title','tag_line', 'description', 'featured_img','technologies', 'course_chapter', 'related_videos', 'tech_list','enrolled_courses','total_enrolled_students','course_rating']
         # depth = 1
     def __init__(self, *args, **kwargs):
         super(CourseSerializer, self).__init__(*args, **kwargs)
@@ -151,3 +151,16 @@ class FlatPageSerializer(serializers.ModelSerializer):
 #         model=models.PopularCourses
 #         fields=['id','course','rating']
 
+
+#Assignment Serializer
+class StudentAssignmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=models.StudentAssignment
+        fields= ['id','teacher', 'student','title','detail','add_time']
+    
+    def __init__(self, *args, **kwargs):
+        super(StudentAssignmentSerializer, self).__init__(*args, **kwargs)
+        request=self.context.get('request')
+        self.Meta.depth = 0
+        if request and request.method == 'GET':
+            self.Meta.depth = 2

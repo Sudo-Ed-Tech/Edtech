@@ -66,6 +66,7 @@ class Course(models.Model):
     category = models.ForeignKey(CourseCategory, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name="teacher_courses")
     title = models.CharField(max_length=150)
+    tag_line = models.CharField(max_length=300, null=True)
     description = models.TextField()
     featured_img = models.ImageField(upload_to='course_img/', null=True)
     technologies = models.TextField(null=True)
@@ -227,3 +228,18 @@ class StudentTrainingEnrollment(models.Model):
 #     def __str__(self):
 #         return f"{self.course.title} - {self.rating.rating}"
 
+
+
+# Assignment
+class StudentAssignment(models.Model):
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    detail = models.TextField(null=True)
+    add_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "55. Student Assignment"
+
+    def __str__(self):
+        return f"{self.title}"

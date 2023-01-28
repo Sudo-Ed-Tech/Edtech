@@ -23,19 +23,21 @@ function AboutUs() {
           }
         },[])
     
-    //Redication
+    //Rediraction
     const SocialLinkedin = ()=>{
         {aboutus.map((about, index)=>(
             window.location.href=about.social_linkedin
         ))
         }
         }
+        
     const SocialGithub = ()=>{
         {aboutus.map((about, index)=>(
             window.location.href=about.social_github
         ))
         }
         }
+
     const SocialTwitter = ()=>{
         {aboutus.map((about, index)=>(
             window.location.href=about.social_twitter

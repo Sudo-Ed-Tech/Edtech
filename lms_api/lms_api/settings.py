@@ -10,7 +10,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 APPEND_SLASH = False
 
-SITE_ID =1
+# SITE_ID = 1
 
 # Application definition
 
@@ -26,8 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    
-    #Project Apps
+
+    # Project Apps
     'eLearning',
     'training',
     'public',
@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 
-    
+
 ]
 
 ROOT_URLCONF = 'lms_api.urls'
@@ -67,14 +67,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'lms_api.wsgi.application'
 
-#Rest framework Authentication
+# Rest framework Authentication
 # REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': (
 #         'rest_framework_simplejwt.authentication.JWTAuthentication',
 #     )
 # }
 
-#Token Authentication
+# Token Authentication
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
@@ -122,7 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -158,11 +157,12 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 X_FRAME_OPTIONS = 'ALLOW-FROM http://127.0.0.1:3000/'
 X_FRAME_OPTIONS = 'ALLOW-FROM http://192.168.252.162:3000/'
-XS_SHARING_ALLOWED_METHODS = ['POST','GET','HEAD','OPTIONS', 'PUT', 'DELETE']
+XS_SHARING_ALLOWED_METHODS = [
+    'POST', 'GET', 'HEAD', 'OPTIONS', 'PUT', 'DELETE']
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-LOGIN_REDIRECT_URL ='/admin/'
+LOGIN_REDIRECT_URL = '/admin/'

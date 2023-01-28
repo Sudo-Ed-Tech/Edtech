@@ -19,6 +19,8 @@ import TeacherProfileSetting from "./Teacher/TeacherProfileSetting";
 import TeacherChnagePassword from "./Teacher/TeacherChangePassword";
 import AddCourse from "./Teacher/AddCourse";
 import UserList from "./Teacher/UserList";
+import AddAssignment from "./Teacher/AddAssignment";
+import ShowAssignment from "./Teacher/ShowAssignment";
 import TeacherLogout from "./Teacher/TeacherLogout";
 import AddChapter from "./Teacher/AddChapter";
 import CourseChapter from "./Teacher/CourseChapter";
@@ -26,6 +28,8 @@ import EditChapter from "./Teacher/EditChapter";
 import EditCourse from "./Teacher/EditCourse";
 import TeacherSkillsCategory from "./TeacherSkillsCategory";
 import EnrolledStudents from "./Teacher/EnrolledStudents";
+
+
 
 //Student
 import Register from "./User/Register";
@@ -79,6 +83,8 @@ function Didactic() {
         <Route path="/add-course" element={<AddCourse />} />
         <Route path="/edit-course/:course_id" element={<EditCourse />} />
         <Route path="/teacher-users" element={<UserList />} />
+        <Route path="/add-assignment/:teacher_id/:student_id" element={<AddAssignment />} />
+        <Route path="/show-assignment/:teacher_id/:student_id" element={<ShowAssignment />} />
         <Route path="/add-chapter/:course_id" element={<AddChapter />} />
         <Route path="/all-chapters/:course_id" element={<CourseChapter />} />
         <Route path="/edit-chapter/:chapter_id" element={<EditChapter />} />

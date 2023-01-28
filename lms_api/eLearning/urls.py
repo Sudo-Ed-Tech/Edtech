@@ -78,4 +78,8 @@ urlpatterns = [
 
     #Popular Course List
     #path('popular-course/', views.PopularCourseList.as_view()),
+
+    #Assignment
+    path('student-assignment/<int:teacher_id>/<int:student_id>', views.AssignmentList.as_view()),
+
 ]
