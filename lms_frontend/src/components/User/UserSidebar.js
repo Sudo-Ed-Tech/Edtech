@@ -37,6 +37,11 @@ function UserSidebar(){
                         <Link to="/recommended-courses" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Recommended Courses</Link>
                     </a>
                 </li>
+                <li>
+                    <a  class="nav-link text-white">
+                        <Link to="/my-assignments" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Assignments</Link>
+                    </a>
+                </li>
             </ul>
             <hr />
             <div class="dropdown">

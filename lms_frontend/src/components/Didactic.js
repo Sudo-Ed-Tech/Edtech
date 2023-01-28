@@ -39,6 +39,7 @@ import Dashboard from "./User/Dashboard";
 import MyCourses from "./User/MyCourses";
 import FavoriteCourses from "./User/FavoriteCourses";
 import RecommendedCourses from "./User/RecommendedCourses";
+import StudentAssignments from "./User/StudentAssignments";
 import ProfileSetting from "./User/ProfileSetting";
 import ChnagePassword from "./User/ChangePassword";
 
@@ -85,6 +86,7 @@ function Didactic() {
         <Route path="/teacher-users" element={<UserList />} />
         <Route path="/add-assignment/:teacher_id/:student_id" element={<AddAssignment />} />
         <Route path="/show-assignment/:teacher_id/:student_id" element={<ShowAssignment />} />
+        <Route path="/my-assignments/" element={<StudentAssignments />} />
         <Route path="/add-chapter/:course_id" element={<AddChapter />} />
         <Route path="/all-chapters/:course_id" element={<CourseChapter />} />
         <Route path="/edit-chapter/:chapter_id" element={<EditChapter />} />

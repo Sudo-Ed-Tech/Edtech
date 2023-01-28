@@ -36,7 +36,8 @@ function UserList() {
                     <th>Name</th> 
                     <th>Email</th>
                     <th>Username</th>
-                    <th>Interests</th>
+                    <th>Interests Categories</th>
+                    <th>Assignment</th>
                   </tr>
                 </thead>
                 <tbody>

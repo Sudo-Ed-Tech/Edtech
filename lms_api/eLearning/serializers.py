@@ -57,9 +57,6 @@ class StudentFavoriteCourseSerializer(serializers.ModelSerializer):
             self.Meta.depth =2 
 
 
-
-
-
 class ChapterSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Chapter
@@ -156,7 +153,7 @@ class FlatPageSerializer(serializers.ModelSerializer):
 class StudentAssignmentSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.StudentAssignment
-        fields= ['id','teacher', 'student','title','detail','add_time']
+        fields= ['id','teacher', 'student','title','detail','student_status','add_time',]
     
     def __init__(self, *args, **kwargs):
         super(StudentAssignmentSerializer, self).__init__(*args, **kwargs)
