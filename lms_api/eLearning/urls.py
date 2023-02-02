@@ -39,6 +39,9 @@ urlpatterns = [
 
     # student
     path('student/', views.StudentList.as_view()),
+    path('student/<int:pk>', views.StudentDetail.as_view()),
+    path('student/dashboard/<int:pk>', views.StudentDashboard.as_view()),
+    path('student/change-password/<int:student_id>/',views.student_change_password),
     path('user-login', views.user_login),
 
     #Student Enrollment

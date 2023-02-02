@@ -42,6 +42,11 @@ function UserSidebar(){
                         <Link to="/my-assignments" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Assignments</Link>
                     </a>
                 </li>
+                <li>
+                    <a  class="nav-link text-white">
+                        <Link to="/change-password" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Change Password</Link>
+                    </a>
+                </li>
             </ul>
             <hr />
             <div class="dropdown">

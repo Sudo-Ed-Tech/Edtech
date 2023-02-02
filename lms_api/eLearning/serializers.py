@@ -72,7 +72,7 @@ class ChapterSerializer(serializers.ModelSerializer):
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Student
-        fields = ['id', 'full_name', 'username', 'email','password', 'qualification', 'interests','enrolled_student','enrolled_training_student']
+        fields = ['id', 'full_name', 'username', 'email','password', 'interests','enrolled_student','enrolled_training_student','profile_img']
         # depth =1
 
     def __init__(self, *args, **kwargs):
@@ -161,3 +161,9 @@ class StudentAssignmentSerializer(serializers.ModelSerializer):
         self.Meta.depth = 0
         if request and request.method == 'GET':
             self.Meta.depth = 2
+
+
+class StudentDashboardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=models.Student
+        fields=['enrolled_courses','favorites_courses','complete_assignments','pending_assignments']

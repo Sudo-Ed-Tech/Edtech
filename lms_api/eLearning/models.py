@@ -125,14 +125,36 @@ class Student(models.Model):
     username = models.CharField(max_length=50, unique=True, null=True)
     email = models.EmailField(max_length=100, unique=True)
     password = models.CharField(max_length=100)
-    qualification = models.CharField(max_length=200)
     interests = models.TextField(null=True)
+    profile_img=models.ImageField(upload_to='student_profile_imgs/',null=True)
 
     class Meta:
         verbose_name_plural = "5. Students"
 
     def __str__(self):
         return self.full_name
+
+    # Total Enrolled Courses
+    def enrolled_courses(self):
+        enrolled_courses = StudentCourseEnrollment.objects.filter(student=self).count()
+        return enrolled_courses
+
+    # Total Favorite Courses
+    def favorites_courses(self):
+        favorites_courses = StudentFavoriteCourse.objects.filter(student=self).count()
+        return favorites_courses
+
+    # Completed Assignments
+    def complete_assignments(self):
+        complete_assignments = StudentAssignment.objects.filter(
+            student=self,student_status=True).count()
+        return complete_assignments
+
+    # Pending Assignments
+    def pending_assignments(self):
+        pending_assignments = StudentAssignment.objects.filter(
+            student=self,student_status=False).count()
+        return pending_assignments
 
 
 # Favorite Course
