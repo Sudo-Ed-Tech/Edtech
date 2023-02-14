@@ -10,7 +10,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 APPEND_SLASH = False
 
-SITE_ID = 1
+SITE_ID = 2
 
 # Application definition
 

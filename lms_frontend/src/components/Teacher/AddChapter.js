@@ -77,7 +77,7 @@ function AddChapter() {
               <div className="mb-3">
                 <label for="description" className="form-label"> Description</label>
                 <div className="col-sm-10">
-                  <textarea onChange={handleChange}name="description"className="form-control"></textarea>
+                  <textarea onChange={handleChange} name="description"className="form-control"></textarea>
                 </div>
               </div>
               <div className="mb-3">
