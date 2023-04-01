@@ -34,7 +34,7 @@ function StudentAssignments() {
     _FormData.append("student_status", true);
     _FormData.append("title", AssignmentData.title);
     _FormData.append("detail", AssignmentData.detail);
-    _FormData.append("doc_file",AssignmentData.doc_file);
+    // _FormData.append("doc_file",AssignmentData.doc_file);
     _FormData.append("student", AssignmentData.student);
     _FormData.append("teacher", AssignmentData.teacher);
 
@@ -71,7 +71,7 @@ function StudentAssignments() {
                                 <th>Title</th>
                                 <th>Detail</th>
                                 <th>Teacher</th>
-                                <th>Upload Document</th>
+                                {/* <th>Upload Document</th> */}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -81,9 +81,9 @@ function StudentAssignments() {
                                 <td>{row.title}</td>
                                 <td>{row.detail}</td>
                                 <td><Link to={`/teacher-detail/`+row.teacher.id}>{row.teacher.full_name}</Link></td>
-                                <td>
+                                {/* <td>
                                   <input onChange={handleFileChange} name="doc_file"type="file" className="form-control"/>
-                                </td>
+                                </td> */}
                                 <td>
                                     {row.student_status==false &&
                                         <button onClick={()=>markAsDone(row.id,row.title,row.detail,row.doc_file,row.student.id,row.teacher.id)} className="btn btn-success btn-sm">Mark as Done</button>

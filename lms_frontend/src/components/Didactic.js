@@ -29,7 +29,17 @@ import EditCourse from "./Teacher/EditCourse";
 import TeacherSkillsCategory from "./TeacherSkillsCategory";
 import EnrolledStudents from "./Teacher/EnrolledStudents";
 
+//Teacher Dashboard: quiz
+import AddQuiz from "./Teacher/AddQuiz";
+import AllQuiz from "./Teacher/AllQuiz";
+import QuizQuestions from "./Teacher/QuizQuestions";
+import EditQuiz from "./Teacher/EditQuiz";
+import AddQuizQuestion from "./Teacher/AddQuizQuestion";
+import AssignQuiz from "./Teacher/AssignQuiz";
 
+//User Dashboard Quiz
+import CourseQuizLst from "./User/CourseQuizLst";
+import TakeQuiz from "./User/TakeQuiz";
 
 //Student
 import Register from "./User/Register";
@@ -87,6 +97,16 @@ function Didactic() {
         <Route path="/add-assignment/:teacher_id/:student_id" element={<AddAssignment />} />
         <Route path="/show-assignment/:teacher_id/:student_id" element={<ShowAssignment />} />
         <Route path="/my-assignments/" element={<StudentAssignments />} />
+        <Route path="/add-quiz" element={<AddQuiz />} />
+        <Route path="/add-quiz-questions/:quiz_id" element={<AddQuizQuestion />} />
+        <Route path="/assign-quiz/:course_id" element={<AssignQuiz />} />
+        <Route path="/quiz" element={<AllQuiz />} />
+        <Route path="/edit-quiz/:quiz_id" element={<EditQuiz />} />
+
+        <Route path="/course-quiz/:course_id" element={<CourseQuizLst />} />
+        <Route path="/take-quiz/:quiz_id" element={<TakeQuiz />} />
+
+        <Route path="/all-questions/:quiz_id" element={<QuizQuestions />} />
         <Route path="/add-chapter/:course_id" element={<AddChapter />} />
         <Route path="/all-chapters/:course_id" element={<CourseChapter />} />
         <Route path="/edit-chapter/:chapter_id" element={<EditChapter />} />

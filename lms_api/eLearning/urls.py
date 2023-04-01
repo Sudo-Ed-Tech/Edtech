@@ -86,5 +86,22 @@ urlpatterns = [
     path('student-assignment/<int:teacher_id>/<int:student_id>', views.AssignmentList.as_view()),
     path('my-assignments/<int:student_id>', views.MyAssignmentList.as_view()),
     path('update-assignments/<int:pk>', views.UpdateAssignment.as_view()),
+    path('student/fetch-all-notifications/<int:student_id>',views.NotificationList.as_view()),
+    path('save-notification/',views.NotificationList.as_view()),
+
+    #quiz start
+    path('quiz/', views.Quizlist.as_view()),
+    path('teacher-quiz/<int:teacher_id>', views.TeacherQuizList.as_view()),
+    path('teacher-quiz-detail/<int:pk>', views.TeacherQuizDetail.as_view()),
+    path('quiz/<int:pk>', views.QuizDetailView.as_view()),
+    path('quiz-questions/<int:quiz_id>', views.QuizQuestionList.as_view()),
+    path('quiz-questions/<int:quiz_id>/<int:limit>', views.QuizQuestionList.as_view()),
+    path('add-quiz-questions/<int:quiz_id>', views.QuizQuestionList.as_view()),
+    path('fetch-quiz-assign-status/<int:quiz_id>/<int:course_id>', views.fetch_quiz_assign_status),
+    path('quiz-assign-course/', views.CourseQuizList.as_view()),
+    path('fetch-assigned-quiz/<int:course_id>', views.CourseQuizList.as_view()),
+    path('attempt-quiz/', views.AttempQuizList.as_view()),
+    path('quiz-questions/<int:quiz_id>/next-question/<int:question_id>', views.QuizQuestionList.as_view()),
+    path('fetch-quiz-attempt-status/<int:quiz_id>/<int:student_id>', views.fetch_quiz_attempt_status),
 
 ]

@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-
+import axios from 'axios';
+const baseUrl='http://127.0.0.1:8000/api/elearning';
 
 function UserSidebar(){
-
+    const [notifData,setnotifData]=useState([]);
+    const studentId=localStorage.getItem('studentId');
+    useEffect(()=>{
+        try{
+            axios.get(baseUrl+'/student/fetch-all-notifications/'+studentId)
+            .then((res)=>{
+                console.log(res);
+                setnotifData(res.data);
+            });
+        }catch(error){
+            console.log(error);
+        }
+    },[]);
     return(
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{width:280, height:900}}>
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -39,7 +51,7 @@ function UserSidebar(){
                 </li>
                 <li>
                     <a  class="nav-link text-white">
-                        <Link to="/my-assignments" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Assignments</Link>
+                        <Link to="/my-assignments" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Assignments <span className="float-end badge bg-danger mt-1">{notifData.length}</span></Link>
                     </a>
                 </li>
                 <li>

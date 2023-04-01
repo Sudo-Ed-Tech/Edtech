@@ -41,9 +41,10 @@ function MyCourses() {
                 </h5>
                 <p><b>Course By:&nbsp;&nbsp; </b><Link to={`/teacher-detail/`+row.course.teacher.id}>{row.course.teacher.full_name}</Link></p>
                 <p><b>Description:&nbsp;&nbsp; </b>{row.course.description}<Link to={`/course-detail/`+row.course.id}>..more</Link></p>
+                <p><b>Course Quiz: </b><Link to={`/course-quiz/`+row.course.id} className="btn btn-sm btn-warning" >Quiz List</Link></p>
                 <hr/>
-                <button className='btn btn-success ms-5 px-3' ><Link to={`/course-detail/`+row.course.id} style={{ textDecoration: 'none' ,color:"white"}}>Start</Link></button>
-                <button className='btn btn-danger ms-5 px-3' >Remove</button>
+                <button className='btn btn-success' ><Link to={`/course-detail/`+row.course.id} style={{ textDecoration: 'none' ,color:"white"}}>Start</Link></button>
+                <button className='btn btn-danger ms-5 ' >Remove</button>
               </div>
             </div>
           </div>

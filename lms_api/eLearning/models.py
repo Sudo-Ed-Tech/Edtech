@@ -267,3 +267,71 @@ class StudentAssignment(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+    
+
+#notification model
+class Notification(models.Model):
+    teacher=models.ForeignKey(Teacher,on_delete=models.CASCADE,null=True)
+    student=models.ForeignKey(Student,on_delete=models.CASCADE,null=True)
+    notif_subject=models.CharField(max_length=200,verbose_name='Notification Subject',null=True)
+    notif_for=models.CharField(max_length=200,verbose_name='Notification For')
+    notif_created_time=models.DateTimeField(auto_now_add=True)
+    notifread_status=models.BooleanField(default=False,verbose_name='Notification Status')
+
+    class Meta:
+        verbose_name_plural = "91. Notifications"
+
+    
+#quiz model
+class Quiz(models.Model):
+    teacher=models.ForeignKey(Teacher,on_delete=models.CASCADE,null=True)
+    title=models.CharField(max_length=200)
+    detail=models.TextField()
+    add_time=models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural="92. Quiz"
+
+    def assign_status(self):
+        return CourseQuiz.objects.filter(quiz=self).count()
+    
+    def __str__(self):
+        return f"{self.title}"
+
+
+#quiz questions model
+class QuizQuestions(models.Model):
+    quiz=models.ForeignKey(Quiz,on_delete=models.CASCADE,null=True)
+    questions=models.CharField(max_length=200)
+    ans1=models.CharField(max_length=200)
+    ans2=models.CharField(max_length=200)
+    ans3=models.CharField(max_length=200)
+    ans4=models.CharField(max_length=200)
+    right_ans=models.CharField(max_length=200)
+    add_time=models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural="93. Quiz Questions"
+
+
+#Add Quiz to Course
+class CourseQuiz(models.Model):
+    teacher=models.ForeignKey(Teacher,on_delete=models.CASCADE,null=True)
+    course=models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
+    quiz=models.ForeignKey(Quiz,on_delete=models.CASCADE,null=True)
+    add_time=models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural="94. Course Quiz"
+
+
+#Attempt Quiz question by student
+class AttempQuiz(models.Model):
+    student=models.ForeignKey(Student,on_delete=models.CASCADE,null=True)
+    quiz=models.ForeignKey(Quiz,on_delete=models.CASCADE,null=True)
+    question=models.ForeignKey(QuizQuestions,on_delete=models.CASCADE,null=True)
+    right_ans=models.CharField(max_length=200,null=True)
+    add_time=models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural="95. Attempted Questions"

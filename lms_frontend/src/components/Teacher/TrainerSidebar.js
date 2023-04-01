@@ -32,6 +32,16 @@ function TrainerSidebar(){
                         <Link to="/teacher-users" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Enrolled Users</Link>
                     </a>
                 </li>
+                <li>
+                    <a href="#" class="nav-link text-white">
+                        <Link to="/quiz" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Quiz</Link>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white">
+                        <Link to="/add-quiz" className="bi me-2 text-light" style={{ textDecoration: 'none' }}>Add Quiz</Link>
+                    </a>
+                </li>
                 
             </ul>
             <hr />
