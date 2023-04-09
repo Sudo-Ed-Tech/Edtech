@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     try {
       axios.get(baseUrl + "/courses/").then((res) => {
-        setCourseData(res.data);
+        setCourseData(res.data.results);
       });
     } catch (error) {
       console.log(error);

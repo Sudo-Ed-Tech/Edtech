@@ -24,6 +24,7 @@ urlpatterns = [
     # Course Category
     path('category/', views.CategoryList.as_view()),
     path('courses/', views.CourseList.as_view()),
+    path('search-courses/<str:searchstring>', views.CourseList.as_view()),
     path('course/<int:pk>', views.CourseDetailView.as_view()),
     path('course-category/<int:category_id>',views.CourseDetailView.as_view()),
 
@@ -104,4 +105,10 @@ urlpatterns = [
     path('quiz-questions/<int:quiz_id>/next-question/<int:question_id>', views.QuizQuestionList.as_view()),
     path('fetch-quiz-attempt-status/<int:quiz_id>/<int:student_id>', views.fetch_quiz_attempt_status),
 
+    #study materials
+    path('user/study-materials/<int:course_id>', views.StudyMaterialList.as_view()),
+    path('study-materials/<int:course_id>', views.StudyMaterialList.as_view()),
+    path('study-material/<int:pk>', views.StudyMaterialDetailView.as_view()),
+    path('attempted-quiz/<int:quiz_id>', views.AttempQuizList.as_view()),
+    path('fetch-quiz-result/<int:quiz_id>/<int:student_id>', views.fetch_quiz_result),
 ]

@@ -224,7 +224,7 @@ class CourseQuizSerializer(serializers.ModelSerializer):
 class AttempQuizSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.AttempQuiz
-        fields = ['id','student', 'question','right_ans','add_time']
+        fields = ['id','student','quiz', 'question','right_ans','add_time']
         # depth=1
 
     def __init__(self, *args, **kwargs):
@@ -233,3 +233,16 @@ class AttempQuizSerializer(serializers.ModelSerializer):
         self.Meta.depth = 0
         if request and request.method == 'GET':
             self.Meta.depth =2  
+
+
+class StudyMaterialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.StudyMaterial
+        fields = ['id', 'course', 'title', 'description', 'upload', 'remarks']
+
+    def __init__(self, *args, **kwargs):
+        super(StudyMaterialSerializer, self).__init__(*args, **kwargs)
+        request=self.context.get('request')
+        self.Meta.depth = 0
+        if request and request.method == 'GET':
+            self.Meta.depth =2

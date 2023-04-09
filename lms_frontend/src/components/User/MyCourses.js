@@ -42,6 +42,7 @@ function MyCourses() {
                 <p><b>Course By:&nbsp;&nbsp; </b><Link to={`/teacher-detail/`+row.course.teacher.id}>{row.course.teacher.full_name}</Link></p>
                 <p><b>Description:&nbsp;&nbsp; </b>{row.course.description}<Link to={`/course-detail/`+row.course.id}>..more</Link></p>
                 <p><b>Course Quiz: </b><Link to={`/course-quiz/`+row.course.id} className="btn btn-sm btn-warning" >Quiz List</Link></p>
+                <p><b>Study Material: </b><Link className="btn btn-primary ms-2 btn-sm active " to={`/user/study-materials/` + row.course.id}>Study Material</Link></p>
                 <hr/>
                 <button className='btn btn-success' ><Link to={`/course-detail/`+row.course.id} style={{ textDecoration: 'none' ,color:"white"}}>Start</Link></button>
                 <button className='btn btn-danger ms-5 ' >Remove</button>

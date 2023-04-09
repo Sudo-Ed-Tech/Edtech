@@ -5,7 +5,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import serializers
 from rest_framework.response import Response
-from .serializers import (CategorySerializer, CourseRatingSerializer, TeacherSerializer, CourseSerializer,AttempQuizSerializer,
+from .serializers import (CategorySerializer, CourseRatingSerializer, TeacherSerializer, CourseSerializer,AttempQuizSerializer,StudyMaterialSerializer,
                           ChapterSerializer, StudentSerializer, StudentCourseEnrollSerializer, TeacherDashboardSerializer, TrainingDetailsSerializer,CourseQuizSerializer,
                           StudentFavoriteCourseSerializer, StudentTrainingEnrollSerializer, FlatPageSerializer, TeacherResumeSerializer, StudentAssignmentSerializer, StudentDashboardSerializer,NotificationSerializer,QuizSerializer,QuestionSerializer)
 from rest_framework import generics
@@ -14,6 +14,7 @@ from . import models
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.flatpages.models import FlatPage
+from rest_framework.pagination import PageNumberPagination
 
 
 
@@ -28,6 +29,10 @@ class AuthenticationView(generics.RetrieveAPIView):
         }
         return Response(content)
 
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size=4
+    page_size_query_param='page_size'
+    max_page_size=4
 
 #Teacher List
 class TeacherList(generics.ListCreateAPIView):
@@ -119,6 +124,7 @@ class CategoryList(generics.ListCreateAPIView):
 class CourseList(generics.ListCreateAPIView):
     queryset = models.Course.objects.all()
     serializer_class = CourseSerializer
+    pagination_class=StandardResultsSetPagination
     # permission_classes=[permissions.IsAuthenticated]
 
     def get_queryset(self):
@@ -131,8 +137,13 @@ class CourseList(generics.ListCreateAPIView):
                 category = self.request.GET['category']
                 qs = models.Course.objects.filter(technologies__icontains=category)
 
-        elif 'studentId' in self.request.GET:
-            student_id = self.request.GET['studentId']
+        if 'searchstring' in self.kwargs:
+            search=self.kwargs['searchstring']
+            if search:
+                qs=models.Course.objects.filter(title__icontains=search)
+
+        elif 'studentId' in self.kwargs:
+            student_id = self.kwargs['studentId']
             student = models.Student.objects.get(pk=student_id)
             queries = [Q(technologies__iendswith=value) for value in student.interests]
             query = queries.pop()
@@ -544,11 +555,45 @@ class AttempQuizList(generics.ListCreateAPIView):
     queryset = models.AttempQuiz.objects.all()
     serializer_class = AttempQuizSerializer
 
+    def get_queryset(self):
+        if 'quiz_id' in self.kwargs:
+            quiz_id=self.kwargs['quiz_id']
+            quiz=models.Quiz.objects.get(pk=quiz_id)
+            return models.AttempQuiz.objects.raw(f'SELECT * FROM eLearning_attempquiz WHERE quiz_id={int(quiz_id)} GROUP by student_id')
+        
+
 def fetch_quiz_attempt_status(request,quiz_id,student_id):
     quiz=models.Quiz.objects.filter(id=quiz_id).first()
     student=models.Student.objects.filter(id=student_id).first()
     attemptStatus=models.AttempQuiz.objects.filter(student=student,question__quiz=quiz).count()
-    if attemptStatus > 0:
+    if attemptStatus>0:
         return JsonResponse({'bool':True})
     else:
         return JsonResponse({'bool':False})
+
+def fetch_quiz_result(request,quiz_id,student_id):
+    quiz=models.Quiz.objects.filter(id=quiz_id).first()
+    student=models.Student.objects.filter(id=student_id).first()
+    total_questions=models.QuizQuestions.objects.filter(quiz=quiz).count()
+    total_attempted_questions=models.AttempQuiz.objects.filter(quiz=quiz,student=student).values('student').count()
+    attempted_questions=models.AttempQuiz.objects.filter(quiz=quiz,student=student)
+
+    total_correct_questions=0
+    for attempt in attempted_questions:
+        if attempt.right_ans==attempt.question.right_ans:
+            total_correct_questions+=1
+
+    return JsonResponse({'total_questions':total_questions,'total_attempted_questions':total_attempted_questions,'total_correct_questions':total_correct_questions})
+
+# Course Chapter List
+class StudyMaterialList(generics.ListCreateAPIView):
+    serializer_class = StudyMaterialSerializer
+
+    def get_queryset(self):
+        course_id = self.kwargs['course_id']
+        course = models.Course.objects.get(pk=course_id)
+        return models.StudyMaterial.objects.filter(course=course)
+    
+class StudyMaterialDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.StudyMaterial.objects.all()
+    serializer_class = StudyMaterialSerializer

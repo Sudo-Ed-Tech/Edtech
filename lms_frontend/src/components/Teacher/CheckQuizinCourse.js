@@ -54,7 +54,11 @@ function CheckQuizinCourse(props) {
         }
 
         {quizData.bool==true &&
-        <span className="text-success">Assigned</span>
+        <>
+          <span className="btn btn-sm btn-secondary">Assigned</span>
+          &nbsp;
+          <Link className="btn btn-sm btn-info" to={`/attempted-students/`+props.quiz}>Attempted Students</Link>
+        </>
         }
     </td>
   );

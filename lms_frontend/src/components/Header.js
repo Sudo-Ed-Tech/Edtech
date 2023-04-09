@@ -3,11 +3,23 @@ import {Link} from 'react-router-dom';
 import { useState } from "react";
 
 function Header() {
-  const [searchString, setsearchString] = useState('');
+  const [searchString, setsearchString] = useState({
+    'search':''
+  });
   const teacherLoginStatus=localStorage.getItem('teacherLoginStatus');
   const studentLoginStatus=localStorage.getItem('studentLoginStatus');
-  const searchCourse=()=>{
 
+  const handleChange = (event) => {
+    setsearchString({
+      ...searchString,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const searchCourse=()=>{
+    if(searchString.search!=''){
+    window.location.href="/search/"+searchString.search
+    }
   }
 
     return (
@@ -23,8 +35,8 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav ms-auto">
             <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search by Course Title" aria-label="Search" />
-              <button onClick={searchCourse} className="btn  btn-dark" type="submit">Search</button>
+              <input name="search" onChange={handleChange} className="form-control me-2" type="search" placeholder="Search by Course Title" aria-label="Search" />
+              <button onClick={searchCourse} className="btn  btn-dark" type="button">Search</button>
             </form>
             <Link className="nav-link text-dark fs-5" to="/">Home</Link>
             <Link className="nav-link text-dark fs-5" to="/">Subscribe</Link>

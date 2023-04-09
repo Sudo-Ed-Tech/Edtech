@@ -34,32 +34,6 @@ function AllQuiz() {
     }
   },[]);
 
-
-  // //assign quiz to course
-  //   const assignQuiz=(quiz_id)=>{
-  //   const _FormData = new FormData();
-  //   _FormData.append("teacher", teacherId);
-  //   _FormData.append("course", course_id);
-  //   _FormData.append("quiz", quiz_id);
-
-  //   try {
-  //     axios
-  //       .post(baseUrl + "/quiz-assign-course/", _FormData, {
-  //         headers: {
-  //           "content-type": "multipart/form-data",
-
-  //         },
-  //       }).then((res) => {
-  //         if(res.status===200 || res.status===201){
-  //           window.location.reload();
-  //         }
-          
-  //       });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   return (
     <div className="container-fluid main_container">
       <div className="row">
@@ -80,17 +54,11 @@ function AllQuiz() {
                     <tr>
                       <td>
                         <Link to={`/all-questions/`+row.id}><b>{row.title}</b></Link>
-                        <hr />
+                        
                       </td>
                       <td>
                         <CheckQuizinCourse quiz={row.id} course={course_id}/>
                       </td>
-                      {/* <td className="text-center" >
-                        {row.assign_status ==0 &&
-                          <button onClick={()=>assignQuiz(row.id)} className="btn btn-success btn-sm ms-2 px-4  active">Assign Quiz</button>}
-                        {row.assign_status>0 && 
-                          <span className="text-success">Assigned</span>}
-                      </td> */}
                     </tr>
                     
                   )}

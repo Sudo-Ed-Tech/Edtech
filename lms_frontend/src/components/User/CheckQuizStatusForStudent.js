@@ -24,7 +24,7 @@ function CheckQuizinCourse(props) {
   return(
     <td>
         {quizData.bool==true &&
-        <span className="text-success">Attempted</span>
+          <span className="text-success">Attempted</span>
         }
 
         {quizData.bool==false &&

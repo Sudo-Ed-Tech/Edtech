@@ -10,6 +10,7 @@ import PopularCourses from "./PopularCourses";
 import PopularTeachers from "./PopularTeachers";
 import CategoryCourses from "./CategoryCourses";
 import CourseDetail from "./CourseDetail";
+import Search from "./Search";
 import TeacherDetail from "./TeacherDetail";
 
 //Teacher
@@ -36,6 +37,11 @@ import QuizQuestions from "./Teacher/QuizQuestions";
 import EditQuiz from "./Teacher/EditQuiz";
 import AddQuizQuestion from "./Teacher/AddQuizQuestion";
 import AssignQuiz from "./Teacher/AssignQuiz";
+import AttemptedStudents from "./Teacher/AttemptedStudents";
+
+//course study material
+import StudyMaterials from "./Teacher/StudyMaterials";
+import AddStudyMaterial from "./Teacher/AddStudyMaterial";
 
 //User Dashboard Quiz
 import CourseQuizLst from "./User/CourseQuizLst";
@@ -52,6 +58,7 @@ import RecommendedCourses from "./User/RecommendedCourses";
 import StudentAssignments from "./User/StudentAssignments";
 import ProfileSetting from "./User/ProfileSetting";
 import ChnagePassword from "./User/ChangePassword";
+import UserStudyMaterials from "./User/UserStudyMaterials";
 
 //Training
 import TrainingDetails from "./Teacher/TrainingDetails";
@@ -76,6 +83,8 @@ function Didactic() {
       <Switch>
         <Route path="/" element={<Home />} />
         <Route path="/course-detail/:course_id" element={<CourseDetail />} />
+        <Route path="/search/:searchstring" element={<Search />} />
+
         <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
 
         {/* Teacher */}
@@ -102,9 +111,14 @@ function Didactic() {
         <Route path="/assign-quiz/:course_id" element={<AssignQuiz />} />
         <Route path="/quiz" element={<AllQuiz />} />
         <Route path="/edit-quiz/:quiz_id" element={<EditQuiz />} />
+        <Route path="/attempted-students/:quiz_id" element={<AttemptedStudents />} />
 
         <Route path="/course-quiz/:course_id" element={<CourseQuizLst />} />
         <Route path="/take-quiz/:quiz_id" element={<TakeQuiz />} />
+
+        <Route path="/user/study-materials/:course_id" element={<UserStudyMaterials />} />
+        <Route path="/study-materials/:course_id" element={<StudyMaterials />} />
+        <Route path="/add-study/:course_id" element={<AddStudyMaterial />} />
 
         <Route path="/all-questions/:quiz_id" element={<QuizQuestions />} />
         <Route path="/add-chapter/:course_id" element={<AddChapter />} />

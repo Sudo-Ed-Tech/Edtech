@@ -61,6 +61,7 @@ function TeacherCourses() {
                       </td>
                       <td className="text-center" >
                         <Link className="btn btn-info text-white px-4  btn-sm active " to={`/edit-course/` + course.id}> <i className="bi bi-pencil-square"></i></Link>
+                        <Link className="btn btn-primary ms-2 btn-sm active " to={`/study-materials/` + course.id}>Study Material</Link>
                         <Link className="btn btn-success ms-2 btn-sm active " to={`/add-chapter/` + course.id}>Add Chapter</Link>
                         <Link className="btn btn-warning ms-2 btn-sm active " to={`/assign-quiz/` + course.id}>Assign Quiz</Link>
                         <button className="btn btn-danger btn-sm ms-2 px-4  active"><i className="bi bi-trash"></i></button>

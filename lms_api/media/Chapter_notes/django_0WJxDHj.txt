@@ -1,0 +1,11 @@
+install:- pip install django
+upgrade:- python.exe -m pip install --upgrade pip
+version:- python -m django --version
+install_virtual-environment: pip install virtualenvwrapper-win
+create_virtual-environment:- py -m venv project_name
+open_virtual-environment:- .\project_name\Scripts\activate
+close_virtual-environment:- deactivate
+start_project:- django-admin startproject project_name
+runserver:- python manage.py runserver
+make_app:- python manage.py startapp app_name
+
