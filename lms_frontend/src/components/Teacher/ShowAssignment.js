@@ -52,10 +52,10 @@ function ShowAssignment() {
                   <tr>
                     <td>{row.title}</td>
                     <td>
-                        {row.student_status==false &&
+                        {row.status==false &&
                             <span class="badge bg-warning">Pending</span>                      
                             }
-                        {row.student_status==true &&
+                        {row.status==true &&
                             <span class="badge bg-success">Completed</span>
                         }
                     </td>
